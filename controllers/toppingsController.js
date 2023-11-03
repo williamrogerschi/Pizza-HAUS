@@ -5,7 +5,7 @@ module.exports = {
     getAllToppings,
 }
 
-async function getAllCheeses (req, res) {
+async function getAllToppings (req, res) {
     try {
         const toppings = await Topping.find()
         res.status(200).json(toppings)
