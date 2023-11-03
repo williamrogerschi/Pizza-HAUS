@@ -7,7 +7,8 @@ const userSchema = new Schema(
         phone: {type: String, required: true},
         points: {type: Number, required: true}
 
-    }
+    },
+    { timestamps: true },
 )
 
 module.exports = userSchema
