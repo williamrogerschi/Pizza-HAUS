@@ -4,6 +4,10 @@ const logger = require('morgan')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
+//show route controllers
+const cheeseController = require('./controllers/cheeseController')
+const toppingsController = require('./controllers/toppingsController')
+
 const PORT = process.env.PORT || 3001
 
 
@@ -17,6 +21,8 @@ app.use(cors())
 
 //show routes
 app.get('/', (req, res) => res.send('This is root'))
+app.get('/cheeses', cheeseController.getAllCheeses)
+app.get('/toppings', toppingsController.getAllToppings)
 
 
 
