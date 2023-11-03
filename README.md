@@ -2,7 +2,7 @@
 <h1>Description</h1>
 <p>MERN Pizza Haus is like the ultimate online hub for pizza lovers. It's a cool website that lets you do all things pizza-related. Here's the lowdown:</P>
 <ul>
-    <li><h6>Build Your Dream Pizza:</h6> You can craft your own pizza masterpiece by picking your favorite toppings and crust. The app shows you the price in real-time as you pile on the goodness.<li>
+    <li><h6>Build Your Dream Pizza:</h6> You can craft your own pizza masterpiece by picking your favorite toppings and crust. The app shows you the price in real-time as you pile on the goodness.</li>
     <li><h6>Easy Ordering:</h6>No need to call. Just browse the menu, add items to your cart, and check out. You can even pay online, super convenient.</li>
     <li><h6>Share Your Love For Pizza:</h6> Leave reviews, and let others know how awesome our pizza is. The staff might even give you a shoutout!</li>
     <li><h6>Pizza on the Go:</h6>Whether you're on your laptop, tablet, or phone, the app works like a charm. No matter where you are, you're just a few clicks away from pizza heaven.</li>
