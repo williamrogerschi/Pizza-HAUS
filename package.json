@@ -1,0 +1,24 @@
+{
+  "name": "pizza-haus",
+  "version": "1.0.0",
+  "description": "<h1>Description</h1> <p>MERN Pizza Haus is like the ultimate online hub for pizza lovers. It's a cool website that lets you do all things pizza-related. Here's the lowdown:</P> <ul>     <li><h6>Build Your Dream Pizza:</h6> You can craft your own pizza masterpiece by picking your favorite toppings and crust. The app shows you the price in real-time as you pile on the goodness.</li>     <li><h6>Easy Ordering:</h6>No need to call. Just browse the menu, add items to your cart, and check out. You can even pay online, super convenient.</li>     <li><h6>Share Your Love For Pizza:</h6> Leave reviews, and let others know how awesome our pizza is. The staff might even give you a shoutout!</li>     <li><h6>Pizza on the Go:</h6>Whether you're on your laptop, tablet, or phone, the app works like a charm. No matter where you are, you're just a few clicks away from pizza heaven.</li>     <li><h6>Security and Stuff:</h6>Rest assured, we take your security seriously. Your data is safe with us.</li> </ul> <p>MERN Pizza Haus is all about making your pizza experience as easy and enjoyable as possible. So, get ready to order your favorite pie, and let the pizza party begin! 🍕🎉</p>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

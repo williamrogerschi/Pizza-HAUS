@@ -10,9 +10,4 @@ return (
 }
 
 
-
-
-
-
-
 export default Home
