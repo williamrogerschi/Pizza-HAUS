@@ -60,11 +60,11 @@ const pizzaNames = [
     while (toppingsList.length < 3) {
       const randomIndex = Math.floor(Math.random() * toppings.length);
       const topping = toppings[randomIndex]._id;
-      if (!toppings.includes(topping)) {
-        toppings.push(topping);
+      if (!toppingsList.includes(topping)) {
+        toppingsList.push(topping);
       }
     }
-    return toppings;
+    return toppingsList;
   }
 
   async function getRandomCheeses() {
@@ -88,7 +88,7 @@ const pizzaNames = [
         description: pizzaDescriptions[i],
         base_price: 10 + i,   
         cheeses: await getRandomCheeses(),
-        toppings: getRandomToppings(),
+        toppings: await getRandomToppings(),
         image: `${pizzaNames[i].toLowerCase()}.jpg`
         }
         pizzaMenu.push(pizza);
@@ -101,6 +101,8 @@ const pizzaNames = [
   const main = async () => {
     cheeses = await getCheeses()
     toppings = await getToppings()
+    // console.log(cheeses)
+    // console.log(toppings)
     
     await createAndSavePizza()
     db.close()
