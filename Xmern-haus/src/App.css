@@ -57,7 +57,62 @@ a {
 
 a:hover {
   text-decoration: none;
-  color: black;
+  color: rgb(171,44,45);
   font-size: 18px;
-  text-decoration-line: underline;
+  /* text-decoration-line: underline; */
 }
+
+
+
+
+/* FOOTER CSS */
+li {
+  list-style: none;
+}
+.footer {
+  display:flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-around;
+  background-color: rgb(179, 177, 177);
+  position: absolute;
+  bottom: 0;
+  border-top: 1px solid black;
+}
+.footer div:nth-child(1) {
+  color: black;
+}
+.footer div:nth-child(2) {
+  color:black;
+}
+.footer div:nth-child(3) {
+  color:black;
+}
+.inner-footer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  padding-top: 10px;
+}
+.inner-footer2{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+.footer-ul {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+a{
+  margin: 0 5px 0 5px;
+}
+
+li {
+  padding: 10px 50px 0 50px;
+}
+
+
