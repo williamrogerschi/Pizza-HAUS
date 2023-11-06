@@ -18,7 +18,7 @@ const Cart = () => {
       <div className="cart-wrapper">
         {/* Cart Content */}
         <div onClick={toggleCart} className="arrow">
-          ▲
+        Cart     ▲
         </div>
       </div>
     </div>
