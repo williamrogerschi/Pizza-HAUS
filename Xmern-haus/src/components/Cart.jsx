@@ -1,29 +1,31 @@
-import './Cart.css'
-
 import React, { useState } from 'react';
+import './Cart.css';
 
 const Cart = () => {
-  const [cartVisible, setCartVisible] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleCart = () => {
-    setCartVisible(!cartVisible);
-  };
-
-  const cartStyle = {
-    transform: cartVisible ? 'translateY(0)' : 'translateY(100%)',
+    setMenuOpen(!menuOpen);
   };
 
   return (
-    <div className="cart-overlay-container" style={cartStyle}>
+    <div className={`cart-overlay-container ${menuOpen ? 'open' : ''}`}>
       <div className="cart-wrapper">
-        {/* Cart Content */}
-        <div onClick={toggleCart} className="arrow">
-        Cart     ▲
+        <div className="arrow" onClick={toggleCart}>
+          Cart ▲
         </div>
+        {menuOpen && (
+          <div className="menu">
+            <ul>
+              <li>Item 1</li>
+              <li>Item 2</li>
+              <li>Item 3</li>
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
 export default Cart;
-
