@@ -76,7 +76,7 @@ const pizzaNames = [
         cheesesList.push(cheese);
       }
     }
-    return cheeses;
+    return cheesesList;
   }
   
   const createAndSavePizza = async () => {      

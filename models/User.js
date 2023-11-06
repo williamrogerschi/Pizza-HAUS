@@ -3,7 +3,7 @@ const { Schema } = require('mongoose')
 const userSchema = new Schema(
     {
         cart: {type: Schema.Types.ObjectId, ref:"Menu"},
-        user_name: {type: Number, required: true},
+        user_name: {type: String, required: true},
         address: {type: String},
         phone: {type: String},
         points: {type: Number, required: true}

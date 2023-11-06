@@ -9,7 +9,7 @@ const addUsers = async () => {
     const users = [
     ]
     for (let i = 1; i <= 20; i++) {
-        users.push({ user_name: `User${i}` })
+        users.push({ user_name: `User${i}` , points: 0})
     }
     // console.log(users)
     await User.insertMany(users)    
@@ -18,12 +18,13 @@ const addUsers = async () => {
 
 
 const main = async () => {
-    await addUsers()
+    // await addUsers()
     const carts = await Cart.find()
     // let users = []
     for (let i = 0; i < carts.length; i++) {
         let user = await User.findOne().skip(i)
-        await User.findByIdAndUpdate(user._id, {cart: cart._id})
+        console.log(user)
+        await User.findByIdAndUpdate(user._id, {cart: carts[i]._id})
     }
     // await Cart.insertMany(carts)
 

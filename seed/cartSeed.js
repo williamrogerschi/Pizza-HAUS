@@ -10,6 +10,7 @@ const main = async () => {
     for (let i = 0; i < orders.length; i++) {
         carts.push({ current_order: orders[i]._id })
     }
+    console.log(carts)
     await Cart.insertMany(carts)
 
     db.close()
