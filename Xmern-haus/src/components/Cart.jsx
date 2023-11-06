@@ -1,8 +1,29 @@
+import './Cart.css'
+
+import React, { useState } from 'react';
 
 const Cart = () => {
-    return (
-        <h1>I am a cart page!</h1>
-    )
-}
+  const [cartVisible, setCartVisible] = useState(true);
 
-export default Cart
+  const toggleCart = () => {
+    setCartVisible(!cartVisible);
+  };
+
+  const cartStyle = {
+    transform: cartVisible ? 'translateY(0)' : 'translateY(100%)',
+  };
+
+  return (
+    <div className="cart-overlay-container" style={cartStyle}>
+      <div className="cart-wrapper">
+        {/* Cart Content */}
+        <div onClick={toggleCart} className="arrow">
+          ▲
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Cart;
+

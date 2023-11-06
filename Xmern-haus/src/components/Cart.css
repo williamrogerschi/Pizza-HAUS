@@ -1,0 +1,12 @@
+.cart-overlay-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(100%);
+  background-color: rgba(255, 255, 255, 0.95);
+  width: 150px; /* Set the width to make it smaller */
+  height: 100px; /* Set the height to make it smaller */
+}
+
