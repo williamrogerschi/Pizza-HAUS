@@ -4,6 +4,8 @@ import Nav from './Nav'
 import Home from './Home'
 import Pizza from './Pizza'
 import CYOP from './CYOP'
+import Footer from './Footer'
+import Cart from './Cart'
 
 //import components
 
@@ -22,9 +24,18 @@ const Main = () => {
             <Route path='/Pizza' element={<Pizza/>}/>
             {/* <Route path='/Drinks/:id' element={<DrinkDetails/>}/> */}
             <Route path='/CYOP' element={<CYOP/>}/>
+
         </Routes>
+       <Cart/>
+        <Footer/>
     </div>
 )
 }
 
+
+
+
+
 export default Main
+
+

@@ -1,6 +1,10 @@
 const Footer = () => {
     return (
-        <h1>I am a footer!</h1>
+        <h1>Legal Notice
+         | Privacy Policy
+        | Cookies Policy
+          
+        Pizza Haus © 2023 All rights reserved</h1>
     )
 }
 
