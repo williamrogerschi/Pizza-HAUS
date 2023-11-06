@@ -7,6 +7,7 @@ const menuSchema = new Schema(
         base_price: {type: Number, required: true},   
         description: {type: String },    
         cheeses: [{type: Schema.Types.ObjectId, ref: 'Cheeses'}],
+        image:{type: String }
     },
     {timestamps: true}
 )
