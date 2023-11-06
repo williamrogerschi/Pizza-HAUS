@@ -6,7 +6,6 @@ const Nav = () => {
         <Link to="/"> Home </Link>
         <Link to="/Pizza"> Pizzas </Link>
         <Link to="/CYOP"> CYOP </Link>
-
     </div>
 }
 
