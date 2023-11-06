@@ -4,9 +4,9 @@ const menuSchema = new Schema(
     {        
         name: {type: String, required: true},
         toppings: [{type: Schema.Types.ObjectId, ref: 'Toppings'}],
-        base_price: {type: Number, required: true},
-        size: {type: String, required: true},      
-        description: {type: String, required: true},        
+        base_price: {type: Number, required: true},   
+        description: {type: String },    
+        cheeses: [{type: Schema.Types.ObjectId, ref: 'Cheeses'}],
     },
     {timestamps: true}
 )
