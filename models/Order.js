@@ -8,7 +8,7 @@ const orderSchema = new Schema(
             toppings: [{type: Schema.Types.ObjectId, ref:'Toppings'}],
             cheeses: [{type: Schema.Types.ObjectId, ref:'Cheese'}]
         }],
-        total_price: {type: Number, required: true},
+        total_price: {type: String, required: true},
     },
     { timestamps: true },
 )
