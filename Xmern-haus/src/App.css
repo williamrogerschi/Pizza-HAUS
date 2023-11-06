@@ -34,13 +34,20 @@ body {
 
 .header {
   /* background: url(./assets/pizza-header.jpg); */
-  height: 50vh;
-  width: auto;
-  background-size:contain;
-  background-position: 50% 60%;
+  /* height: auto;
+  width: 100%; */
+  /* max-width: 100%; */
+  /* background-size:cover; */
+  /* background-position: 50% 80%; */
   border-bottom: 1px solid black;
-  overflow: hidden;
+  /* overflow:visible; */
 }
+
+.header img {
+  margin: 0;
+  padding: 0;
+}
+
 
 a {
   text-decoration: none;
@@ -54,8 +61,3 @@ a:hover {
   font-size: 18px;
   text-decoration-line: underline;
 }
-
-
-
-
-
