@@ -6,7 +6,7 @@ db.on('error', console.error.bind(console, `MongoDB connection error:`))
 
 const pizzaNames = [
     "Cheese", "Pepperoni", "Vegetarian", "Hawaiian", "Supreme", "Mushroom", "BBQ Chicken",
-    "Meat Lover's", "Veggie Delight", "Cheese", "Pesto", "White Garlic", "Sausage", "Buffalo Chicken",
+    "Meat Lover's", "Veggie Delight", "Pesto", "White Garlic", "Sausage", "Buffalo Chicken",
     "BBQ Bacon", "Four Cheese", "Margarita", "Bacon Ranch", "Pineapple", "Meatball"
   ]
   
@@ -22,7 +22,7 @@ const pizzaNames = [
 //   ]
 
   const pizzaDescriptions = [
-    "A cheese pizza",
+    "Simple and delicious with tomato sauce and mozzarella cheese.",
     "Loaded with pepperoni, tomato sauce, and mozzarella cheese.",
     "A vegetarian delight with various vegetables and mozzarella cheese.",
     "The perfect blend of ham, pineapple, tomato sauce, and mozzarella cheese.",
@@ -30,8 +30,7 @@ const pizzaNames = [
     "Mouthwatering mushrooms, tomato sauce, and mozzarella cheese.",
     "Savory BBQ chicken, red onions, cilantro, tomato sauce, and mozzarella cheese.",
     "For the meat lovers, packed with pepperoni, sausage, bacon, and ham.",
-    "A veggie-packed delight with various vegetables and mozzarella cheese.",
-    "Simple and delicious with tomato sauce and mozzarella cheese.",
+    "A veggie-packed delight with various vegetables and mozzarella cheese.",   
     "A pesto lover's dream with pesto sauce, tomato, and mozzarella cheese.",
     "Delicious white garlic sauce, tomato, and mozzarella cheese.",
     "Sausage lovers unite with tomato sauce and mozzarella cheese.",
@@ -43,6 +42,29 @@ const pizzaNames = [
     "Hawaiian delight with pineapple, ham, tomato sauce, and mozzarella cheese.",
     "Delicious meatballs, red onions, cilantro, tomato sauce, and mozzarella cheese."
   ]
+
+  const pizzaImages = [
+    "https://www.foodandwine.com/thmb/bT5-sIRTEMDImFAqBmEAzG5T5A4=/1500x0/filters:no_upscal[…]se-pizza-FT-RECIPE0422-31a2c938fc2546c9a07b7011658cfd05.jpg",
+    "https://www.simplyrecipes.com/thmb/X2B0QCVdGJWGO1gW6GR7cz1rhe0=/750x0/filters:no_upscal[…]epperoni-pizza-lead-3-8f256746d649404baa36a44d271329bc.jpg",
+    "https://i0.wp.com/www.thursdaynightpizza.com/wp-content/uploads/2022/06/veggie-pizza-side-view-out-of-oven.png?w=1200&ssl=1",
+    "https://img.kidspot.com.au/pZnR2nZu/kk/2015/03/hawaiian-pizza-recipe-605894-2.jpg",
+    "https://www.southernliving.com/thmb/UuflED14dkNrrm-TFbkz42Z5mRg=/1500x0/filters:no_upsca[…]remepizza_00072-2000-4cab71bd67774233b45f05e4e32fdfde.jpg",
+    "https://www.southernliving.com/thmb/UuflED14dkNrrm-TFbkz42Z5mRg=/1500x0/filters:no_upsca[…]remepizza_00072-2000-4cab71bd67774233b45f05e4e32fdfde.jpg",
+    "https://www.lowcarbmaven.com/wp-content/uploads/2018/02/BBQ-chicken-crust-pizza-3-500x500.jpg", // Actual URL for BBQ Chicken
+    "https://halo-pg.com/wp-content/uploads/2021/10/Ultimate-Stuffed-Meatlovers-Pizza-1.jpg", // Actual URL for Meat Lover's
+    "https://www.southernliving.com/thmb/UuflED14dkNrrm-TFbkz42Z5mRg=/1500x0/filters:no_upsca[…]remepizza_00072-2000-4cab71bd67774233b45f05e4e32fdfde.jpg",
+    "https://res.cloudinary.com/hksqkdlah/image/upload/SFS_Fennel_Cauliflower_Pizza_014_kjcbr0.jpg", // Actual URL for Pesto
+    "https://www.southernliving.com/thmb/UuflED14dkNrrm-TFbkz42Z5mRg=/1500x0/filters:no_upsca[…]remepizza_00072-2000-4cab71bd67774233b45f05e4e32fdfde.jpg",
+    "https://www.southernliving.com/thmb/UuflED14dkNrrm-TFbkz42Z5mRg=/1500x0/filters:no_upsca[…]remepizza_00072-2000-4cab71bd67774233b45f05e4e32fdfde.jpg",
+    "https://www.southernliving.com/thmb/UuflED14dkNrrm-TFbkz42Z5mRg=/1500x0/filters:no_upsca[…]remepizza_00072-2000-4cab71bd67774233b45f05e4e32fdfde.jpg",
+    "https://www.southernliving.com/thmb/UuflED14dkNrrm-TFbkz42Z5mRg=/1500x0/filters:no_upsca[…]remepizza_00072-2000-4cab71bd67774233b45f05e4e32fdfde.jpg",
+    "https://www.southernliving.com/thmb/UuflED14dkNrrm-TFbkz42Z5mRg=/1500x0/filters:no_upsca[…]remepizza_00072-2000-4cab71bd67774233b45f05e4e32fdfde.jpg",
+    "https://eu.ooni.com/cdn/shop/articles/20220211142754-margherita-9920.jpg?crop=center&height=800&v=1644590277&width=800", // Actual URL for Margarita
+    "https://www.southernliving.com/thmb/UuflED14dkNrrm-TFbkz42Z5mRg=/1500x0/filters:no_upsca[…]remepizza_00072-2000-4cab71bd67774233b45f05e4e32fdfde.jpg",
+    "https://www.southernliving.com/thmb/UuflED14dkNrrm-TFbkz42Z5mRg=/1500x0/filters:no_upsca[…]remepizza_00072-2000-4cab71bd67774233b45f05e4e32fdfde.jpg",
+    "https://www.southernliving.com/thmb/UuflED14dkNrrm-TFbkz42Z5mRg=/1500x0/filters:no_upsca[…]remepizza_00072-2000-4cab71bd67774233b45f05e4e32fdfde.jpg",
+  ];
+
 
   let cheeses = []
   async function getCheeses() {
@@ -82,14 +104,14 @@ const pizzaNames = [
   const createAndSavePizza = async () => {      
 
     const pizzaMenu = []
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 19; i++) {
         const pizza = {
         name: pizzaNames[i],
         description: pizzaDescriptions[i],
         base_price: 10 + i,   
         cheeses: await getRandomCheeses(),
         toppings: await getRandomToppings(),
-        image: `${pizzaNames[i].toLowerCase()}.jpg`
+        image: pizzaImages[i]
         }
         pizzaMenu.push(pizza);
     }
