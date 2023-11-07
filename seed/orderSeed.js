@@ -30,7 +30,7 @@ const createAndSaveOrder = async (menu_item, custom_pizza, total_price) => {
     await newOrder.save()
 }
 
-const main = async () => {
+module.exports = async function orderSeed() {
     const orders = [
         {
             menu_item: await findMenuItemByName("Pesto"),
@@ -55,6 +55,6 @@ const main = async () => {
     for (const order of orders) {
         await createAndSaveOrder(order.menu_item, order.custom_pizza, order.total_price)
     }
-    db.close()
+    // db.close()
 }
-main()
+// main()
