@@ -6,7 +6,6 @@ import Pizza from './Pizza'
 import CYOP from './CYOP'
 import Footer from './Footer'
 import Cart from './Cart'
-
 //import components
 
 

@@ -1,0 +1,22 @@
+/* Home.css */
+.image-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Adjust the height as needed */
+  }
+  
+  .image-link {
+    text-decoration: none;
+  }
+  
+  .image {
+    width:  600px; /* Set the desired width */
+    height: 300px; /* Set the desired height */
+    transition: transform 0.3s;
+  }
+  
+  .image-link:hover {
+    transform: scale(1.1);
+  }
+  
