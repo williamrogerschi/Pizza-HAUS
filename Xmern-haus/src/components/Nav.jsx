@@ -6,7 +6,9 @@ const Nav = () => {
 
     return <div className="navbar">
         
-        <img height='120px' width='120px' src='mern_logo_black.png' alt='pizza-logo'/>
+        <Link to='/'>
+        <img height='100px' width='100px' src='mern_logo_black.png' alt='pizza-logo'/>
+        </Link>
         <Link to="/"> Home </Link>
         <Link to="/Pizza"> Pizzas </Link>
         <Link to="/CYOP"> CYOP </Link>
