@@ -63,10 +63,8 @@ a:hover {
 }
 
 
-
-
 /* FOOTER CSS */
-li {
+/* li {
   list-style: none;
 }
 .footer {
@@ -113,6 +111,22 @@ a{
 
 li {
   padding: 10px 50px 0 50px;
+} */
+
+/* pizza page */
+.pizza-map {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 60px;
+  justify-items: center;
+  padding: 30px;
 }
+
+.pizza-card-image {
+  max-width: 350px;
+  max-height: 350px;
+  border: 1px solid rgb(118, 91, 61);
+}
+
 
 
