@@ -21,12 +21,15 @@ const Pizza = () => {
 
         return (
         <div className="pizza-container">
+            <div className='pizza-header'>
+                <h1> P  I  Z  Z  A  S </h1>
+            </div>
             <div className='pizza-map'>
                 {pizza.map((pizzaItem, key) => (
                     <Link key={pizzaItem._id} to={`/menus/${pizzaItem._id}`}>
                         <div className='pizza-card'>
-                            <img className='pizza-card-image' src={pizzaItem.image} alt={pizzaItem.name} />
-                            <h3>{pizzaItem.name} ${pizzaItem.base_price}</h3>
+                            <img className='pizza-card-image' src={pizzaItem.image} alt={pizzaItem.name}/>
+                            <h4>{pizzaItem.name} ${pizzaItem.base_price}</h4>
                         </div>
                     </Link>
                 ))}

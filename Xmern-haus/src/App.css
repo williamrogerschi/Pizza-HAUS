@@ -6,13 +6,15 @@ font-family: 'Roboto Mono', monospace;
 font-family: 'Source Code Pro', monospace; */
 
 html {
-  background-color: white;
+  background-color: rgb(233,229,221);
   font-family: 'Poppins', sans-serif;
 }
 
 body {
   padding: 0;
   margin: 0;
+  background-color: rgb(233,229,221);
+  font-family: 'Poppins', sans-serif;
 }
 
 .main {
@@ -36,34 +38,23 @@ position: relative;
   /* padding: 20px; */
 }
 
-.header {
-  /* background: url(./assets/pizza-header.jpg); */
-  /* height: auto;
-  width: 100%; */
-  /* max-width: 100%; */
-  /* background-size:cover; */
-  /* background-position: 50% 80%; */
-  border-bottom: 1px solid black;
-  /* overflow:visible; */
-}
-
 .header img {
   margin: 0;
   padding: 0;
 }
 
-
 .nav-a {
   text-decoration: none;
-  color: black;
+  color: rgb(10, 10, 10);
   font-size: 18px;
 }
 
 .nav-a:hover {
   text-decoration: none;
-  color: rgb(171,44,45);
+  /* color: rgb(171,44,45); */
+  color: black;
   font-size: 18px;
-  /* text-decoration-line: underline; */
+  text-shadow: 1px 1px 2px grey;
 }
 
 a {
@@ -71,7 +62,6 @@ a {
   color: black;
   font-size: 16px;
 }
-
 
 /* FOOTER CSS */
 li {
@@ -94,13 +84,13 @@ li {
 }
 
 .footer div:nth-child(1) {
-  color: white;
+  color: rgb(233,229,221);
 }
 .footer div:nth-child(2) {
-  color:white;
+  color:rgb(233,229,221);
 }
 .footer div:nth-child(3) {
-  color:white;
+  color:rgb(233,229,221);
 }
 .inner-footer {
   display: flex;
@@ -120,9 +110,15 @@ li {
   justify-content: space-around;
   flex-direction: row;
 }
+.footer-section {
+  padding-top: 20px;
+}
 
 a{
   margin: 0 5px 0 5px;
+  color: black;
+}
+a:hover {
   color: black;
 }
 
@@ -131,21 +127,31 @@ li {
 }
 
 .footer-list {
-  color: white;
+  color: rgb(233,229,221);
 }
 
 .footer-list:hover{
   text-decoration-line: overline;
+  color: white;
 }
 
-
 /* pizza page */
+
+.pizza-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0 40px 0;
+  flex-direction: row;
+  font-family: 'Roboto Mono', monospace;
+}
+
 .pizza-map {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 60px;
   justify-items: center;
-  padding: 60px 30px 30px 30px;
+  padding: 30px 30px 30px 30px;
 }
 
 .pizza-card-image {
@@ -157,6 +163,25 @@ li {
   box-shadow: 1px 1px 4px grey;
   /* , 6px 6px 4px grey; */
   border-radius: 12px;
+}
+
+.pizza-card-image:hover {
+  min-width: 300px;
+  min-height: 300px;
+  max-width: 300px;
+  max-height: 300px;
+  /* border: 2px solid black; */
+  box-shadow: 1px 1px 4px grey, 3px 3px 4px darkslategrey;
+  border-radius: 12px;
+}
+
+h4 {
+  font-size: 20px;
+  padding: 12px 0 0 0;
+}
+
+h1 {
+  font-weight: 600;
 }
 
 
