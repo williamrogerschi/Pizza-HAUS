@@ -42,14 +42,14 @@ body {
     text-align: center;
     margin-top: -30%;
     border: 1px solid #ddd;
-    background-color: white; /* White background for the home container */
+    background-color: gray; /* White background for the home container */
   }
   
   /* Discounts Section */
   .discounts-container {
     margin-top: 10px;
     border: 1px solid #ddd;
-    background-color: white; /* White background for the discounts container */
+    background-color:  gray; /* White background for the discounts container */
   }
   
   .discounts-container h2,
