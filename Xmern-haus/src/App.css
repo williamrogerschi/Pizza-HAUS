@@ -15,6 +15,10 @@ body {
   margin: 0;
 }
 
+.main {
+position: relative;
+}
+
 /* HOME CSS */
 .header-container {
   display: flex;
@@ -49,22 +53,28 @@ body {
 }
 
 
-a {
+.nav-a {
   text-decoration: none;
   color: black;
   font-size: 18px;
 }
 
-a:hover {
+.nav-a:hover {
   text-decoration: none;
   color: rgb(171,44,45);
   font-size: 18px;
   /* text-decoration-line: underline; */
 }
 
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
+
 
 /* FOOTER CSS */
-/* li {
+li {
   list-style: none;
 }
 .footer {
@@ -72,19 +82,25 @@ a:hover {
   flex-direction: column;
   width: 100%;
   justify-content: space-around;
-  background-color: rgb(179, 177, 177);
-  position: absolute;
-  bottom: 0;
-  border-top: 1px solid black;
+  background-image: url(./brick.jpg);
+  background-size: cover;
+  /* position: absolute;
+  bottom: 0; */
+  border-top: 2px solid black;
+  margin-top: 20px;
 }
+.footer card-footer {
+  padding: 0px;
+}
+
 .footer div:nth-child(1) {
-  color: black;
+  color: white;
 }
 .footer div:nth-child(2) {
-  color:black;
+  color:white;
 }
 .footer div:nth-child(3) {
-  color:black;
+  color:white;
 }
 .inner-footer {
   display: flex;
@@ -107,11 +123,21 @@ a:hover {
 
 a{
   margin: 0 5px 0 5px;
+  color: black;
 }
 
 li {
   padding: 10px 50px 0 50px;
-} */
+}
+
+.footer-list {
+  color: white;
+}
+
+.footer-list:hover{
+  text-decoration-line: overline;
+}
+
 
 /* pizza page */
 .pizza-map {
@@ -119,13 +145,18 @@ li {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 60px;
   justify-items: center;
-  padding: 30px;
+  padding: 60px 30px 30px 30px;
 }
 
 .pizza-card-image {
-  max-width: 350px;
-  max-height: 350px;
-  border: 1px solid rgb(118, 91, 61);
+  min-width: 300px;
+  min-height: 300px;
+  max-width: 300px;
+  max-height: 300px;
+  /* border: 2px solid black; */
+  box-shadow: 1px 1px 4px grey;
+  /* , 6px 6px 4px grey; */
+  border-radius: 12px;
 }
 
 

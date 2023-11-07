@@ -26,7 +26,7 @@ const Pizza = () => {
                     <Link key={pizzaItem._id} to={`/menus/${pizzaItem._id}`}>
                         <div className='pizza-card'>
                             <img className='pizza-card-image' src={pizzaItem.image} alt={pizzaItem.name} />
-                            <h3>{pizzaItem.name}</h3>
+                            <h3>{pizzaItem.name} ${pizzaItem.base_price}</h3>
                         </div>
                     </Link>
                 ))}

@@ -13,7 +13,7 @@ import Cart from './Cart'
 const Main = () => {
 
     return (
-        
+     <>
     <div className="main">
         <div className='header-container'>
             <Header/>
@@ -27,8 +27,9 @@ const Main = () => {
 
         </Routes>
        <Cart/>
-        <Footer/>
     </div>
+    <Footer/>
+    </>
 )
 }
 
