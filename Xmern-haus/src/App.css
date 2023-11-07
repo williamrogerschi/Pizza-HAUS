@@ -7,18 +7,18 @@ font-family: 'Source Code Pro', monospace; */
 
 html {
   background-color: rgb(233,229,221);
-  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Poppins', sans-serif; */
 }
 
 body {
   padding: 0;
   margin: 0;
   background-color: rgb(233,229,221);
-  font-family: 'Poppins', sans-serif;
 }
 
 .main {
 position: relative;
+font-family: 'Poppins', sans-serif;
 }
 
 /* HOME CSS */
@@ -62,6 +62,96 @@ a {
   color: black;
   font-size: 16px;
 }
+
+/* CYOP CSS */
+.custompizza {
+  width: 200px;
+  margin:20px;
+}
+
+.CYOP {
+  display:flex;
+  flex-direction: row;
+  padding:20px;
+  margin: 40px;
+}
+
+.leftside, .rightside {
+  width: 50%;
+}
+.leftside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-wrap: wrap;
+}
+.buttonList {
+  width:120px;
+  margin:1px;
+}
+
+
+
+/* pizza page */
+
+.pizza-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0 40px 0;
+  flex-direction: row;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.pizza-map {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 60px;
+  justify-items: center;
+  padding: 30px 30px 30px 30px;
+}
+
+.pizza-card-image {
+  min-width: 300px;
+  min-height: 300px;
+  max-width: 300px;
+  max-height: 300px;
+  /* border: 2px solid black; */
+  box-shadow: 1px 1px 4px grey;
+  /* , 6px 6px 4px grey; */
+  border-radius: 12px;
+}
+
+.pizza-card-image:hover {
+  min-width: 300px;
+  min-height: 300px;
+  max-width: 300px;
+  max-height: 300px;
+  /* border: 2px solid black; */
+  box-shadow: 1px 1px 4px grey, 3px 3px 4px darkslategrey;
+  border-radius: 12px;
+}
+
+h4 {
+  font-size: 20px;
+  padding: 12px 0 0 0;
+  text-decoration: none;
+}
+
+h1 {
+  font-weight: 600;
+}
+
+.pizza-link {
+  text-decoration: none;
+  color: black;
+}
+
 
 /* FOOTER CSS */
 li {
@@ -126,41 +216,9 @@ li {
   padding: 10px 50px 0 50px;
 }
 
-
-.custompizza {
-  width: 200px;
-  margin:20px;
-}
-
-.CYOP {
-  display:flex;
-  flex-direction: row;
-  padding:20px;
-  margin: 40px;
-}
-
-.leftside, .rightside {
-  width: 50%;
-}
-.leftside {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.buttonGroup {
-  display: flex;
-  flex-wrap: wrap;
-}
-.buttonList {
-  width:120px;
-  margin:1px;
-}
-
-
 .footer-list {
   color: rgb(233,229,221);
+  text-decoration: none;
 }
 
 .footer-list:hover{
@@ -168,54 +226,8 @@ li {
   color: white;
 }
 
-/* pizza page */
 
-.pizza-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 80px 0 40px 0;
-  flex-direction: row;
-  font-family: 'Roboto Mono', monospace;
-}
 
-.pizza-map {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 60px;
-  justify-items: center;
-  padding: 30px 30px 30px 30px;
-}
-
-.pizza-card-image {
-  min-width: 300px;
-  min-height: 300px;
-  max-width: 300px;
-  max-height: 300px;
-  /* border: 2px solid black; */
-  box-shadow: 1px 1px 4px grey;
-  /* , 6px 6px 4px grey; */
-  border-radius: 12px;
-}
-
-.pizza-card-image:hover {
-  min-width: 300px;
-  min-height: 300px;
-  max-width: 300px;
-  max-height: 300px;
-  /* border: 2px solid black; */
-  box-shadow: 1px 1px 4px grey, 3px 3px 4px darkslategrey;
-  border-radius: 12px;
-}
-
-h4 {
-  font-size: 20px;
-  padding: 12px 0 0 0;
-}
-
-h1 {
-  font-weight: 600;
-}
 
 
 

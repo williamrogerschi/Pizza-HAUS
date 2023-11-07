@@ -2,6 +2,7 @@ import { BASE_URL } from '../global'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import Description from './hiddenDivFunc'
 
 
 const Pizza = () => {
@@ -26,12 +27,13 @@ const Pizza = () => {
             </div>
             <div className='pizza-map'>
                 {pizza.map((pizzaItem, key) => (
-                    <Link key={pizzaItem._id} to={`/menus/${pizzaItem._id}`}>
+                    <div className='pizza-link' key={pizzaItem._id} to={`/menus/${pizzaItem._id}`}>
                         <div className='pizza-card'>
                             <img className='pizza-card-image' src={pizzaItem.image} alt={pizzaItem.name}/>
                             <h4>{pizzaItem.name} ${pizzaItem.base_price}</h4>
+                            <Description description = {pizzaItem.description}/>
                         </div>
-                    </Link>
+                        </div>
                 ))}
             </div>
         </div>
