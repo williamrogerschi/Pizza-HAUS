@@ -6,14 +6,13 @@ import Pizza from './Pizza'
 import CYOP from './CYOP'
 import Footer from './Footer'
 import Cart from './Cart'
-
 //import components
 
 
 const Main = () => {
 
     return (
-        
+     <>
     <div className="main">
         <div className='header-container'>
             <Header/>
@@ -27,8 +26,9 @@ const Main = () => {
 
         </Routes>
        <Cart/>
-        <Footer/>
     </div>
+    <Footer/>
+    </>
 )
 }
 

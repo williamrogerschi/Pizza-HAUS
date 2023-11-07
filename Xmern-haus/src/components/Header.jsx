@@ -17,6 +17,7 @@ const Header = () => {
             backgroundImage: `url(${headerImage})`,
             backgroundSize: 'cover',
             backgroundPosition: '50% 70%',
+            borderBottom: '1px solid black'
         }
     } else if (location.pathname === '/CYOP') {
         headerImage = 'CYOP.jpg'
@@ -26,6 +27,7 @@ const Header = () => {
             backgroundImage: `url(${headerImage})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
+            borderBottom: '1px solid black'
         }
     } else if(location.pathname === '/Pizza') {
         headerImage = 'pizzas.webp'
@@ -35,6 +37,7 @@ const Header = () => {
             backgroundImage: `url(${headerImage})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
+            borderBottom: '1px solid black'
         }
     } else {
         null

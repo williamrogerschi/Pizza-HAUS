@@ -11,6 +11,7 @@ const cartController = require('./controllers/cartController')
 const menuController = require('./controllers/menuController')
 const orderController = require('./controllers/orderController')
 const userController = require('./controllers/userController')
+const toppingSchema = require('./models/Toppings')
 
 const PORT = process.env.PORT || 3001
 
@@ -22,7 +23,7 @@ app.use(bodyParser.json())
 app.use(cors())
 
 
-
+// order of seeds - topping, cheeses, menu, order, cart, user
 //show routes
 app.get('/', (req, res) => res.send('This is root'))
 
@@ -46,7 +47,6 @@ app.get('/menus/:id', menuController.getOneMenu)
 app.post('/menus/', menuController.createNewMenu)
 app.put('/menus/:id', menuController.updateMenu)
 app.delete('/menus/:id', menuController.deleteMenu)
-
 
 //Orders Routes
 app.get('/orders/', orderController.getAllOrders)

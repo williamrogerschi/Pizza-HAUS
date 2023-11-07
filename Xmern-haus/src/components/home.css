@@ -1,0 +1,91 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+    height: 100vh;
+    background-color: #e9e5dd;
+  }
+  
+  .header {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+  }
+  
+  .menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border: 1px solid #ddd;
+    background-color: #e9e5dd;
+    margin-top: 20px;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .menu-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .menu-text {
+    flex: 1;
+  }
+  
+  .menu-text h2 {
+    font-size: 24px;
+  }
+  
+  menu-text p {
+    font-size: 16px;
+  }
+  
+  .menu-image {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+  
+  .circular-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .about-us-container {
+    display: flex;
+    justify-content: space-between; /* Create space between text and image */
+    align-items: center; /* Center vertically within the container */
+    max-width: 800px; /* Adjust the max width as needed */
+    margin: 0 auto; /* Center the container within the section */
+  }
+  
+  .about-us-text {
+    width: 50%; /* Adjust the text width */
+    padding: 20px; /* Add padding as needed */
+    text-align: center; /* Center text within the text container */
+  }
+  
+  .about-us-text h2 {
+    font-size: 24px; /* Adjust the heading font size */
+    margin-bottom: 10px; /* Add space below the heading */
+  }
+  
+  .about-us-image {
+    width: 40%; /* Adjust the image width */
+    padding: 20px; /* Add padding as needed */
+    text-align: center; /* Center the image within its container */
+  }
+  
+  .about-us-image img {
+    max-width: 100%; /* Ensure the image fits its container */
+    height: auto; /* Maintain aspect ratio of the image */
+  }
