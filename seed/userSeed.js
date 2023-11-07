@@ -18,7 +18,7 @@ const addUsers = async () => {
 
 
 const main = async () => {
-    // await addUsers()
+    await addUsers()
     const carts = await Cart.find()
     // let users = []
     for (let i = 0; i < carts.length; i++) {
