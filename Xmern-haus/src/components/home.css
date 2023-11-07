@@ -1,71 +1,58 @@
-/* Home.css */
-body {
-    background-color: #f0f0f0; /* Light gray background for the entire page */
-  }
-  
-  .container {
+.container {
     display: flex;
-    justify-content: center;
-    margin-top: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
     height: 100vh;
-    border: 1px solid #ddd;
-    background-color: white; /* White background for the container */
+    background-color: #e9e5dd;
   }
   
-  .image-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 0;
-    height: 100vh;
-    border: 1px solid #ddd;
-    background-color: white; /* White background for the image container */
-  }
-  
-  .image-link {
-    text-decoration: none;
-  }
-  
-  .image {
-    width: 600px;
-    height: 300px;
-    transition: transform 0.3s;
-    border: 1px solid #ddd;
-    background-color: white; /* White background for the images */
-  }
-  
-  .image-link:hover {
-    transform: scale(1.1);
-  }
-  
-  .home-container {
+  .header {
     text-align: center;
-    margin-top: -30%;
-    border: 1px solid #ddd;
-    background-color: gray; /* White background for the home container */
+    font-size: 36px;
+    font-weight: bold;
   }
   
-  /* Discounts Section */
-  .discounts-container {
-    margin-top: 10px;
-    border: 1px solid #ddd;
-    background-color:  gray; /* White background for the discounts container */
+  .menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
-  .discounts-container h2,
-  .featured-items-container h2,
-  .location-container h2 {
+  .menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 150%;
+    border: 1px solid #ddd;
+    background-color: #e9e5dd;
+    margin-top: 20px;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .menu-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .menu-text {
+    flex: 1;
+  }
+  
+  .menu-text h2 {
     font-size: 24px;
   }
   
-  .image-box {
-    display: inline-block;
-    margin: 5px;
-    border: 1px solid #ddd;
-    background-color: gray; /* White background for the image boxes */
+  menu-text p {
+    font-size: 16px;
+  }
+  
+  .menu-image {
+    width: 100px;
+    height: 100px;
     overflow: hidden;
-    width: 120px;
-    height: 120px;
+    border-radius: 50%;
   }
   
   .circular-image {
@@ -73,34 +60,3 @@ body {
     height: 100%;
     object-fit: cover;
   }
-  
-  /* Featured Items Section */
-  .featured-items-container {
-    margin-top: 10px;
-    border: 1px solid #ddd;
-    background-color: gray; /* White background for the featured items container */
-  }
-  
-  /* Location Section */
-  .location-container {
-    margin-top: 10px;
-    border: 1px solid #ddd;
-    background-color: gray; /* White background for the location container */
-  }
-  
-  .picture-frame {
-    display: inline-block;
-    margin-top: 10px;
-    border: 1px solid #ddd;
-    background-color: gray; /* White background for the picture frame */
-    overflow: hidden;
-    width: 300px;
-    height: 300px;
-  }
-  
-  .location-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
