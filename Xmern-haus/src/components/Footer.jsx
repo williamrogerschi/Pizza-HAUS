@@ -9,7 +9,7 @@ export default function Footer() {
 
     return (
     <div className="footer">
-      <CardFooter className="footer">
+      <CardFooter className="footer-card">
         <div className="inner-footer">
         <div className="adham">
           Adham
@@ -18,7 +18,7 @@ export default function Footer() {
               icon={faLinkedin}
               bounce
               size="xl"
-              style={{ color: "black" }}
+              style={{ color: "white" }}
             />
           </a>
           <a href="https://github.com/adhammorsy75" target="_blank" className="github-link">
@@ -26,7 +26,7 @@ export default function Footer() {
               icon={faGithub}
               shake
               size="xl"
-              style={{ color: "black" }}
+              style={{ color: "white" }}
             />
           </a>
         </div>
@@ -37,7 +37,7 @@ export default function Footer() {
               icon={faLinkedin}
               bounce
               size="xl"
-              style={{ color: "black" }}
+              style={{ color: "white" }}
             />
           </a>
           <a href="https://github.com/williamrogerschi" target="_blank" className="github-link">
@@ -45,7 +45,7 @@ export default function Footer() {
               icon={faGithub}
               shake
               size="xl"
-              style={{ color: "black" }}
+              style={{ color: "white" }}
             />
           </a>
         </div>
@@ -56,7 +56,7 @@ export default function Footer() {
               icon={faLinkedin}
               bounce
               size="xl"
-              style={{ color: "black" }}
+              style={{ color: "white" }}
             />
           </a>
           <a href="https://github.com/jmasterr" target="_blank" className="github-link">
@@ -64,7 +64,7 @@ export default function Footer() {
               icon={faGithub}
               shake
               size="xl"
-              style={{ color: "black" }}
+              style={{ color: "white" }}
             />
          </a>
         </div>
@@ -75,7 +75,7 @@ export default function Footer() {
               icon={faLinkedin}
               bounce
               size="xl"
-              style={{ color: "black" }}
+              style={{ color: "white" }}
             />
           </a>
           <a href="https://github.com/JoshHutchison" target="_blank" className="github-link">
@@ -83,7 +83,7 @@ export default function Footer() {
               icon={faGithub}
               shake
               size="xl"
-              style={{ color: "black" }}
+              style={{ color: "white" }}
             />
           </a>
         </div>
@@ -92,17 +92,18 @@ export default function Footer() {
           <div className="footer-section">
             
             <ul className="footer-ul">
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Contact Us</a></li>
-              <li><a href="#">Advertise</a></li>
-              <li><a href="#" target="_blank">Facebook</a></li>
-              <li><a href="#" target="_blank">Twitter</a></li>
-              <li><a href="#" target="_blank">Instagram</a></li>
+              <li><a className="footer-list" href="#">About Us</a></li>
+              <li><a className="footer-list" href="#">Contact Us</a></li>
+              <li><a className="footer-list" href="#">Advertise</a></li>
+              <li><a className="footer-list" href="#" target="_blank">Facebook</a></li>
+              <li><a className="footer-list" href="#" target="_blank">Twitter</a></li>
+              <li><a className="footer-list" href="#" target="_blank">Instagram</a></li>
             </ul>
           </div>
           </div>
       </CardFooter>
     </div>
+
   );
 }
 
