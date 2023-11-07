@@ -17,7 +17,7 @@ const addUsers = async () => {
 }
 
 
-const main = async () => {
+module.exports = async function userSeed() {
     await addUsers()
     const carts = await Cart.find()
     // let users = []
@@ -28,8 +28,8 @@ const main = async () => {
     }
     // await Cart.insertMany(carts)
 
-    db.close()
+    // db.close()
     console.log('Created Users')
 }
 
-main()
+// main()

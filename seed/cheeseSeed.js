@@ -55,13 +55,13 @@ const createAndSaveCheese = async (name, description) => {
 }
 
 
-    const main = async() => {
+module.exports = async function cheeseSeed() {
     for (const cheese of pizzaCheeses) {
         await createAndSaveCheese(cheese.name, cheese.description)
       }
-      db.close()
+      // db.close()
     }
-    main()
+    // main()
 
 
 

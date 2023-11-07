@@ -77,10 +77,10 @@ const createAndSaveToppings = async (name, type) => {
     await newTopping.save()
 }
 
-const main = async () => {
+module.exports = async function toppingsSeed() {
     for (const toppings of pizzaToppings) {
         await createAndSaveToppings(toppings.name, toppings.type)
     }
-    db.close()
+    // db.close()
 }
-main()
+// main()
