@@ -16,7 +16,6 @@ export default function Footer() {
           <a href="https://www.linkedin.com/in/adham-morsy/" target="_blank"className="linkedin-link">
             <FontAwesomeIcon
               icon={faLinkedin}
-              bounce
               size="xl"
               style={{ color: "white" }}
             />
@@ -24,7 +23,6 @@ export default function Footer() {
           <a href="https://github.com/adhammorsy75" target="_blank" className="github-link">
             <FontAwesomeIcon
               icon={faGithub}
-              shake
               size="xl"
               style={{ color: "white" }}
             />
@@ -35,7 +33,6 @@ export default function Footer() {
           <a href="https://www.linkedin.com/in/billy-rogers-chi/" target="_blank"className="linkedin-link">
             <FontAwesomeIcon
               icon={faLinkedin}
-              bounce
               size="xl"
               style={{ color: "white" }}
             />
@@ -43,7 +40,6 @@ export default function Footer() {
           <a href="https://github.com/williamrogerschi" target="_blank" className="github-link">
             <FontAwesomeIcon
               icon={faGithub}
-              shake
               size="xl"
               style={{ color: "white" }}
             />
@@ -54,7 +50,6 @@ export default function Footer() {
           <a href="www.linkedin.com/in/jaimtoledo10" target="_blank" className="linkedin-link">
             <FontAwesomeIcon
               icon={faLinkedin}
-              bounce
               size="xl"
               style={{ color: "white" }}
             />
@@ -62,7 +57,6 @@ export default function Footer() {
           <a href="https://github.com/jmasterr" target="_blank" className="github-link">
             <FontAwesomeIcon
               icon={faGithub}
-              shake
               size="xl"
               style={{ color: "white" }}
             />
@@ -73,7 +67,6 @@ export default function Footer() {
           <a href="https://www.linkedin.com/in/josh-g-hutchison/" target="_blank" className="linkedin-link">
             <FontAwesomeIcon
               icon={faLinkedin}
-              bounce
               size="xl"
               style={{ color: "white" }}
             />
@@ -81,7 +74,6 @@ export default function Footer() {
           <a href="https://github.com/JoshHutchison" target="_blank" className="github-link">
             <FontAwesomeIcon
               icon={faGithub}
-              shake
               size="xl"
               style={{ color: "white" }}
             />
