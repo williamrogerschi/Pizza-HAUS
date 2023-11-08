@@ -22,7 +22,7 @@ font-family: 'Poppins', sans-serif;
 
 .navbar {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: row;
   background-color: rgb(233,229,221);
   border-bottom: 1px solid black;
