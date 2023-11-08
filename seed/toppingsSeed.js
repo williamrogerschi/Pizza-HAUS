@@ -1,6 +1,6 @@
 const db = require('../db/index')
 
-const { Topping } = require('../models/Index.js')
+const { Toppings } = require('../models/Index.js')
 
 db.on('error', console.error.bind(console, `MongoDB connection error:`))
 
@@ -73,7 +73,7 @@ const pizzaToppings = [
 ]
 
 const createAndSaveToppings = async (name, type) => {
-    const newTopping = new Topping({ name, type })
+    const newTopping = new Toppings({ name, type })
     await newTopping.save()
 }
 

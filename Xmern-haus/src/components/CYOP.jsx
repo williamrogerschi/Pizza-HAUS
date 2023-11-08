@@ -40,7 +40,7 @@ export default function CYOP() {
       console.log(...toppingsSelected);
       setToppingsSelected([...toppingsSelected]);
     }
-  };
+  }
 
   useEffect(() => {
     const getToppingsCheeses = async () => {

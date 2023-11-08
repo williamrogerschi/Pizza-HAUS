@@ -1,6 +1,6 @@
 const db = require('../db/index')
 
-const { Menu, Topping, Cheese, Order } = require('../models/Index')
+const { Menu, Toppings, Cheese, Order } = require('../models/Index')
 
 db.on('error', console.error.bind(console, `MongoDB connection error:`))
 
@@ -15,8 +15,8 @@ const findMenuItemByName = async (pizzaName) => {
 
 const findToppingItemByName = async (toppingName) => {
     console.log(toppingName)
-    console.log((await Topping.findOne({name:toppingName})))
-    return (await Topping.findOne({name:toppingName}))._id
+    console.log((await Toppings.findOne({name:toppingName})))
+    return (await Toppings.findOne({name:toppingName}))._id
 }
 
 const findCheesebyName = async (cheeseName) => {
@@ -33,13 +33,13 @@ const createAndSaveOrder = async (menu_item, custom_pizza, total_price) => {
 module.exports = async function orderSeed() {
     const orders = [
         {
-            menu_item: await findMenuItemByName("Pesto"),
+            menu_item: [await findMenuItemByName("Pesto")],
             custom_pizza: [{
                 base_pizza: await findMenuItemByName("Cheese"),
                 toppings: [await findToppingItemByName("Pepperoni"),await findToppingItemByName("Bacon"),await findToppingItemByName("Italian Sausage")],
                 cheeses: await findCheesebyName("Asiago")
             }],
-            total_price: "$58"
+            total_price: "$34"
         },
         {
             menu_item: [await findMenuItemByName("Margarita")],

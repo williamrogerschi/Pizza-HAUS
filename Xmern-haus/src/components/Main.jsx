@@ -11,6 +11,8 @@ import Cart from './Cart'
 
 const Main = () => {
 
+    
+
     return (
      <>
     <div className="main">

@@ -1,6 +1,6 @@
 const db = require('../db/index')
 
-const { Cart, Cheese, Menu, Topping, User} = require('../models/Index.js')
+const { Cart, Cheese, Menu, Toppings, User} = require('../models/Index.js')
 
 db.on('error', console.error.bind(console, `MongoDB connection error:`))
 
@@ -74,7 +74,7 @@ const pizzaNames = [
 
   let toppings = []
   async function getToppings() {
-    return await Topping.find()
+    return await Toppings.find()
   } 
 
   async function getRandomToppings() {
