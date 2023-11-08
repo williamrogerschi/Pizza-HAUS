@@ -5,15 +5,9 @@ font-family: 'Poppins', sans-serif;
 font-family: 'Roboto Mono', monospace;
 font-family: 'Source Code Pro', monospace; */
 
-html {
-  background-color: rgb(233,229,221);
-  /* font-family: 'Poppins', sans-serif; */
-}
-
 body {
   padding: 0;
   margin: 0;
-  background-color: rgb(233,229,221);
 }
 
 .main {
@@ -24,18 +18,15 @@ font-family: 'Poppins', sans-serif;
 /* HOME CSS */
 .header-container {
   display: flex;
-  flex-direction: column-reverse;
-}
+  flex-direction: column-reverse;}
 
 .navbar {
   display: flex;
-  justify-content: space-around;
-  text-align: center;
-  align-items: center;
+  justify-content: center;
   flex-direction: row;
   background-color: rgb(233,229,221);
   border-bottom: 1px solid black;
-  /* padding: 20px; */
+  padding: 0px 20px 0 20px;
 }
 
 .header img {
@@ -47,6 +38,7 @@ font-family: 'Poppins', sans-serif;
   text-decoration: none;
   color: rgb(10, 10, 10);
   font-size: 18px;
+  padding: 0px 40px 0 40px;
 }
 
 .nav-a:hover {
@@ -95,10 +87,7 @@ a {
   margin:1px;
 }
 
-
-
 /* pizza page */
-
 .pizza-header {
   display: flex;
   justify-content: center;
@@ -151,7 +140,6 @@ h1 {
   text-decoration: none;
   color: black;
 }
-
 
 /* FOOTER CSS */
 li {
