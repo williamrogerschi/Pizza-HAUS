@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Description from './hiddenDivFunc'
-
+import AddToCart from './addToCartButton'
 
 const Pizza = () => {
     
@@ -31,7 +31,7 @@ const Pizza = () => {
                         <div className='pizza-card'>
                             <img className='pizza-card-image' src={pizzaItem.image} alt={pizzaItem.name}/>
                             <h4>{pizzaItem.name} ${pizzaItem.base_price}</h4>
-                            <Description description = {pizzaItem.description}/>
+                            <Description description = {pizzaItem.description}/> 
                         </div>
                         </div>
                 ))}
