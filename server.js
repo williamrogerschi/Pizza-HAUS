@@ -11,7 +11,7 @@ const cartController = require('./controllers/cartController')
 const menuController = require('./controllers/menuController')
 const orderController = require('./controllers/orderController')
 const userController = require('./controllers/userController')
-const toppingSchema = require('./models/Toppings')
+
 
 const PORT = process.env.PORT || 3001
 
