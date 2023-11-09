@@ -13,7 +13,7 @@ import {
 } from "reactstrap";
 import { BASE_URL } from "../global";
 
-export default function CYOP() {
+export default function CYOP(props) {
   const [toppings, setToppings] = useState(null);
   const [cheeses, setCheeses] = useState(null);
   const [sizeSelected, setSize] = useState(null); //size
@@ -42,14 +42,22 @@ export default function CYOP() {
     }
   }
 
+  const addToCart = () => {
+    console.log(props.userData)
+    // props.setUserData()
+    
+  }
+
   useEffect(() => {
     const getToppingsCheeses = async () => {
-      let cheeses = (await axios.get(`${BASE_URL}cheeses`)).data;
-      let toppings = (await axios.get(`${BASE_URL}toppings`)).data;
+      let cheeses = (await axios.get(`${BASE_URL}cheeses`)).data
+      let toppings = (await axios.get(`${BASE_URL}toppings`)).data
+    //   let users = (await axios.get(`${BASE_URL}users`)).data
       console.log(cheeses);
       console.log(toppings);
       setToppings(toppings);
       setCheeses(cheeses);
+      
     };
     getToppingsCheeses();
   }, []);
@@ -131,7 +139,9 @@ export default function CYOP() {
           </Spinner>
         )}
         <h5></h5>
-        <Button block>Add to Cart</Button>
+        <Button 
+            block
+            onClick={() => addToCart()} >Add to Cart</Button>
       </div>
     </div>
   ) : (
