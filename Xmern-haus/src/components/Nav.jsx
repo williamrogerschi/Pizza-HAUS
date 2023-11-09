@@ -16,7 +16,7 @@ const Nav = () => {
     <div className="navbar">
       {/* ...other links/buttons... */}
       <button className="nav-a" onClick={openContainer}>
-        Open Container
+        login
       </button>
 
       {showContainer && <CenteredContainer onClose={closeContainer} />}
