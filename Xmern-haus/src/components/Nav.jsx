@@ -1,22 +1,27 @@
-import { Link } from "react-router-dom"
+import React, { useState } from "react";
+import CenteredContainer from "./CenteredContainer";
 
 const Nav = () => {
+  const [showContainer, setShowContainer] = useState(false);
 
-    let height
+  const openContainer = () => {
+    setShowContainer(true);
+  };
 
-    return (
-    
+  const closeContainer = () => {
+    setShowContainer(false);
+  };
+
+  return (
     <div className="navbar">
-        
-        <Link className="nav-a" to="/Pizza"> Pizzas </Link>
-        <Link className="nav-a" to='/'>
-        <img height='100px' width='100px' src='mern_logo_black.png' alt='pizza-logo'/>
-        </Link>
-        {/* <Link className="nav-a" to="/"> Home </Link> */}
-        <Link className="nav-a" to="/CYOP"> CYOP </Link>
+      {/* ...other links/buttons... */}
+      <button className="nav-a" onClick={openContainer}>
+        Open Container
+      </button>
 
+      {showContainer && <CenteredContainer onClose={closeContainer} />}
     </div>
-    )
-}
+  );
+};
 
-export default Nav
+export default Nav;
