@@ -61,7 +61,6 @@ async function deleteCart(req,res) {
     }
 }
 
-
 module.exports = {
     getAllCarts,
     getOneCart,

@@ -1,148 +1,41 @@
-
-// import React, { useEffect, useState } from 'react';
-// import { BASE_URL } from '../global';
-// import axios from 'axios';
-// import './Cart.css';
-
-// const Cart = () => {
-
-//   const [menuOpen, setMenuOpen] = useState(false);
-//   const [cartItems, setCartItems] = useState([]);
-
-//   const toggleCart = () => {
-//     setMenuOpen(!menuOpen);
-//   }
-
-//   useEffect(() => {
-//     const getItems = async () => {
-//       if (menuOpen) {
-//         try {
-//           const response = await axios.get(`${BASE_URL}orders/`)
-//           setCartItems(response.data);
-//           console.log(response.data)
-//         } catch (error) {
-//           console.error('Error grabbing cart items', error);
-//         }
-//       }
-//     }
-//     getItems();
-//   }, [menuOpen]);
-
-//   return (
-//     <div className={`cart-overlay-container ${menuOpen ? 'open' : ''}`}>
-//       <div className="cart-wrapper">
-//         <div className="arrow" onClick={toggleCart}>
-//           Cart
-//         </div>
-//         {menuOpen && (
-//           <div className="menu">
-//             <ul>
-//               {cartItems.map((cartItem, key) => (
-//                 <li key={cartItem.custom_pizza}>{cartItem.custom_pizza}</li>
-//               ))}
-//             </ul>  
-//           </div>
-//         )}
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Cart;
-
-
-// version that actually works ish 
-// import React, { useEffect, useState } from 'react';
-// import { BASE_URL } from '../global';
-// import axios from 'axios';
-// import './Cart.css';
-
-// const Cart = () => {
-//   let userId = '654a865a319f1ce8cd6423fa'
-//   const [menuOpen, setMenuOpen] = useState(false);
-//   const [cartItems, setCartItems] = useState([]);
-
-
-//   const toggleCart = () => {
-//     setMenuOpen(!menuOpen);
-//   }
-
-//   useEffect(() => {
-//     const getItems = async () => {
-//       if (menuOpen) {
-//         try {
-//           const response = await axios.get(`${BASE_URL}orders/`);
-//           setCartItems(response.data);
-//           console.log(response.data);
-//         } catch (error) {
-//           console.error('Error grabbing cart items', error);
-//         }
-//       }
-//     }
-//     getItems();
-//   }, [menuOpen]);
-
-//   return (
-//     <div className={`cart-overlay-container ${menuOpen ? 'open' : ''}`}>
-//       <div className="cart-wrapper">
-//         <div className="arrow" onClick={toggleCart}>
-//           Cart
-//         </div>
-//         {menuOpen && (
-//           <div className="menu">
-//             <ul>
-//               {cartItems.map((cartItem, key) => (
-//                 <li key={cartItem._id}>
-//                   {cartItem.custom_pizza.map((pizza, pizzaKey) => (
-//                     <div key={pizzaKey}>
-//                       Base Pizza: {pizza.base_pizza}
-//                       Toppings: {pizza.toppings.join(', ')}
-//                       Cheeses: {pizza.cheeses.join(', ')}
-//                     </div>
-//                   ))}
-//                 </li>
-//               ))}
-//             </ul>
-//           </div>
-//         )}
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Cart;
-
-
-
-// version where we're trying to get user to work
-import React, { useEffect, useState } from 'react';
-import { BASE_URL } from '../global';
-import axios from 'axios';
-import './Cart.css';
+import React, { useEffect, useState } from 'react'
+import { BASE_URL } from '../global'
+import axios from 'axios'
+import './Cart.css'
 
 const Cart = () => {
-  let userId = '654ce855019badf387ee03a2';
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [cartItems, setCartItems] = useState({ cart: { current_order: [] } });
+  let userId = '654ce855019badf387ee03a2'
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [cartItems, setCartItems] = useState({ cart: { current_order: [] } })
+  const [quantity, setQuantity] = useState({})
 
   const toggleCart = () => {
-    setMenuOpen(!menuOpen);
+    setMenuOpen(!menuOpen)
   }
 
   useEffect(() => {
     const getItems = async () => {
       if (menuOpen) {
         try {
-          const response = await axios.get(`${BASE_URL}users/${userId}`);
-          setCartItems(response.data);
-          console.log(response.data);
+          const response = await axios.get(`${BASE_URL}users/${userId}`)
+          setCartItems(response.data)
+          console.log(response.data)
         } catch (error) {
-          console.error('Error grabbing cart items', error);
+          console.error('Error grabbing cart items', error)
         }
       }
     }
-    getItems();
-  }, [menuOpen]);
+    getItems()
+  }, [menuOpen])
+
+  //remove and update qty functions
+  const updateQuantity = (itemId, newQuantity) => {
+    // setQuantity({quantity, [itemId]: newQuantity})
+    setQuantity({ ...quantity, [itemId]: newQuantity})
+  }
+  const removeItem = (itemId) => {
+    setCartItems([itemId._id] || - 1 )
+  }
 
   return (
     <div className={`cart-overlay-container ${menuOpen ? 'open' : ''}`}>
@@ -155,16 +48,28 @@ const Cart = () => {
             <ul>
               {cartItems.cart.current_order.map((currentOrder, key) => (
                 <li key={currentOrder._id}>
-                  <div>
+                  <div className='cyop-cart'>
                     <h4>Custom Pizza</h4>
-                    Base Pizza: {currentOrder.custom_pizza[0].base_pizza.name}
-                    Toppings: {currentOrder.custom_pizza[0].toppings.map((topping) => topping.name).join(', ')}
-                    Cheeses: {currentOrder.custom_pizza[0].cheeses.map((cheese) => cheese.name).join(', ')}
+                    <li>Base Pizza: {currentOrder.custom_pizza[0].base_pizza.name}</li>
+                    <li>Toppings: {currentOrder.custom_pizza[0].toppings.map((topping) => topping.name).join(', ')}</li>
+                    <li>Cheeses: {currentOrder.custom_pizza[0].cheeses.map((cheese) => cheese.name).join(', ')}</li>
                   </div>
-                  <div>
+                  <div className='sig-cart'>
                     <h4>Signature Pizza</h4>
-                    Menu Item: {currentOrder.menu_item[0].name}
-                    {/* Toppings: {currentOrder.menu_item[0].toppings} */}
+                    <li>Menu Item: {currentOrder.menu_item[0].name}</li>
+                    <li>Toppings: {currentOrder.menu_item[0].toppings.map((topping) => topping.name).join(', ')}</li>
+                  </div>
+                    <input
+                      type='number'
+                      value={quantity[currentOrder._id] || 1}
+                      onChange={(e) => updateQuantity(currentOrder._id, e.target.value)}
+                      />
+                  <div className='cart-btn-container'>
+                    <button onClick={() => updateQuantity(currentOrder._id, quantity[currentOrder._id])}> Update Qty.</button>
+                    <button onClick={() => removeItem(currentOrder._id)}>Remove</button>
+                  </div>
+                  <div className='order-cart'>
+                    <li><strong>Total Price:</strong> {currentOrder.total_price}</li>
                   </div>
                 </li>
               ))}
@@ -173,8 +78,8 @@ const Cart = () => {
         )}
       </div>
     </div>
-  );
+  )
 }
 
-export default Cart;
+export default Cart
 
