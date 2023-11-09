@@ -1,4 +1,4 @@
-const { Order } = require('../models/Index');
+const { Order, Menu } = require('../models/Index');
 
 const getAllOrders = async (req, res) => {
     try {
@@ -13,6 +13,27 @@ async function getOneOrder(req, res) {
     try {
         const id = req.params.id
         const order = await Order.findById(id)
+        if (order) {
+            return res.json(order)
+        }
+        return res.status(404).send('The order with this id doesnt exist')
+    } catch (error) {
+        return res.status(500).send(error.message)
+    }
+}
+
+async function addSignatureItemToOrder(req, res) {
+    try {
+        const id = req.params.id
+        const order = await Order.findById(id)
+        console.log(req)
+        console.log(req.body.order_id)
+        const menuItem = await Menu.findById(req.body.order_id)
+        
+        
+        order.menu_item.push(menuItem)
+        order.save()
+
         if (order) {
             return res.json(order)
         }
@@ -67,5 +88,6 @@ module.exports = {
     getOneOrder,
     createNewOrder,
     updateOrder,
-    deleteOrder
+    deleteOrder,
+    addSignatureItemToOrder
 }

@@ -55,6 +55,8 @@ app.post('/orders/', orderController.createNewOrder)
 app.put('/orders/:id', orderController.updateOrder)
 app.delete('/orders/:id', orderController.deleteOrder)
 
+app.put('/orders/addMenu/:id', orderController.addSignatureItemToOrder)
+
 //Toppings Routes
 app.get('/toppings/', toppingController.getAllToppings)
 app.get('/toppings/:id', toppingController.getOneTopping)
