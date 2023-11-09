@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Collapse, Button, CardBody, Card } from 'reactstrap';
 import { BASE_URL } from '../global'
 import axios from 'axios';
+import AddToCart from './addToCartButton';
+
 
 function Description({description}) {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,6 +34,7 @@ function Description({description}) {
                 <div className='item-description'>{des.description}</div>
             ))} */}
             <div className='item-description'>{description}</div>
+            <AddToCart />
           </CardBody>
         </Card>
       </Collapse>

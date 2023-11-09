@@ -213,3 +213,7 @@ li {
   text-decoration-line: overline;
   color: white;
 }
+.add-to-cart {
+  border: solid red;
+  height: 5px;
+}
