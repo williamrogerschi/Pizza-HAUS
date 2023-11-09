@@ -7,12 +7,35 @@ import Pizza from './Pizza'
 import CYOP from './CYOP'
 import Footer from './Footer'
 import Cart from './Cart'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import { BASE_URL } from '../global'
 //import components
 
 
 const Main = () => {
 
-    
+    const [userData, setUserData] = useState(null)
+
+    useEffect(() => {
+        console.log('main use effect' )
+        const user = "User1"
+        const findUserInfo = async () => {
+          let users = (await axios.get(`${BASE_URL}users`)).data
+          for (let i = 0; i < users.length; i++) {
+            if (user == users[i].user_name) {
+                setUserData(users[i])
+                console.log(users[i])
+                break;
+            } else {
+                console.log('user not found')
+            }
+          }
+          
+        };
+        findUserInfo();
+
+      }, []);
 
     return (
      <>
@@ -22,10 +45,10 @@ const Main = () => {
             <Nav/>
         </div>
         <Routes>
-            <Route path='/' element={<Home/>}/>
-            <Route path='/Pizza' element={<Pizza/>}/>
+            <Route path='/' element={<Home userData={userData} setUserData={setUserData}/>}/>
+            <Route path='/Pizza' element={<Pizza userData={userData} setUserData={setUserData}/>}/>
             {/* <Route path='/Drinks/:id' element={<DrinkDetails/>}/> */}
-            <Route path='/CYOP' element={<CYOP/>}/>
+            <Route path='/CYOP' element={<CYOP userData={userData} setUserData={setUserData}/>}/>
 
         </Routes>
        <Cart/>
