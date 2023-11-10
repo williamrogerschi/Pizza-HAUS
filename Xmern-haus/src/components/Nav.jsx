@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import CenteredContainer from "./CenteredContainer";
+import Login from "./Login";
 import { Link } from "react-router-dom";
 
-const Nav = () => {
+const Nav = (props) => {
   const [showContainer, setShowContainer] = useState(false);
 
   const openContainer = () => {
@@ -25,7 +25,7 @@ const Nav = () => {
         Login
       </div>
 
-      {showContainer && <CenteredContainer onClose={closeContainer} />}
+      {showContainer && <Login onClose={closeContainer} userData={props.userData} setUserData={props.setUserData} />}
     </div>
   );
 };
