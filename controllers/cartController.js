@@ -61,6 +61,34 @@ async function deleteCart(req,res) {
     }
 }
 
+const getUserCart = async (userId) => {
+    try {
+      const userCart = await Cart.findOne({ userId })
+      return userCart
+    } catch (error) {
+      console.error('Error getting user cart:', error);
+    }
+  }
+
+
+async function updateUserCart (req, res) {
+    try {
+        const currentCart = await Cart.findOne({ userId: userCart.userId })
+        if(!currentCart) {
+            const newCart = await new Cart (req.body)
+            await newCart.save()
+            return res.status(201).json({
+                newCart
+            })
+        } else {
+            currentCart.current_order = userCart.cart.current_order
+            await currentCart.save()
+        }
+    } catch (error) {
+        console.error('Error updating cart', error)
+    }
+}
+
 
 module.exports = {
     getAllCarts,
@@ -68,4 +96,6 @@ module.exports = {
     createNewCart,
     updateCart,
     deleteCart,
+    getUserCart,
+    updateUserCart,
 }

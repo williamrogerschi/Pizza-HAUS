@@ -55,8 +55,6 @@ app.post('/orders/', orderController.createNewOrder)
 app.put('/orders/:id', orderController.updateOrder)
 app.delete('/orders/:id', orderController.deleteOrder)
 
-app.put('/orders/addMenu/:id', orderController.addSignatureItemToOrder)
-
 //Toppings Routes
 app.get('/toppings/', toppingController.getAllToppings)
 app.get('/toppings/:id', toppingController.getOneTopping)
@@ -70,11 +68,11 @@ app.get('/users/:id', userController.getOneUser)
 app.post('/users/', userController.createNewUser)
 app.put('/users/:id', userController.updateUser)
 app.delete('/users/:id', userController.deleteUser)
-app.delete('/users/:userId/clearCart', (req, res) => {
-
-    req.cart = { current_order: [] }
-    return res.status(200).json({ message: 'Cart items cleared' })
-  })
+// app.delete('/users/:userId/clearCart', (req, res) => {
+//     // Assuming you have a session-based mechanism to store the user's current order
+//     req.cart = { current_order: [] }
+//     return res.status(200).json({ message: 'Cart items cleared' })
+//   })
 
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
