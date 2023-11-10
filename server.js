@@ -22,7 +22,6 @@ app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(cors())
 
-
 // order of seeds - topping, cheeses, menu, order, cart, user
 //show routes
 app.get('/', (req, res) => res.send('This is root'))
@@ -54,6 +53,10 @@ app.get('/orders/:id', orderController.getOneOrder)
 app.post('/orders/', orderController.createNewOrder)
 app.put('/orders/:id', orderController.updateOrder)
 app.delete('/orders/:id', orderController.deleteOrder)
+app.get('/orders/:orderId/menuItem/:menuId', orderController.getMenuItem)
+app.get('/orders/:orderId/CYOP/:cyopId', orderController.getCYOP)
+app.put('/orders/:orderId/menuItem/:menuId', orderController.removeItemFromOrder)
+app.put('/orders/:orderId/CYOP/:cyopId', orderController.removeCYOPFromOrder)
 
 //Toppings Routes
 app.get('/toppings/', toppingController.getAllToppings)
@@ -69,7 +72,6 @@ app.post('/users/', userController.createNewUser)
 app.put('/users/:id', userController.updateUser)
 app.delete('/users/:id', userController.deleteUser)
 // app.delete('/users/:userId/clearCart', (req, res) => {
-//     // Assuming you have a session-based mechanism to store the user's current order
 //     req.cart = { current_order: [] }
 //     return res.status(200).json({ message: 'Cart items cleared' })
 //   })
