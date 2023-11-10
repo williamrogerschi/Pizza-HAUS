@@ -53,7 +53,7 @@ const Main = () => {
             <Route path='/CYOP' element={<CYOP userData={userData} setUserData={setUserData}/>}/>
 
         </Routes>
-       <Cart/>
+       <Cart userData={userData} setUserData={setUserData}/>
     </div>
     <Footer/>
     </>

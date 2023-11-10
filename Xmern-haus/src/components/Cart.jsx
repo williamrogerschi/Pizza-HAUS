@@ -3,9 +3,9 @@ import { BASE_URL } from '../global'
 import axios from 'axios'
 import './Cart.css'
 
-const Cart = () => {
-  let userId = '654e9b097c9cded2cabd2b14'
-
+const Cart = (props) => {
+  
+  
   const [menuOpen, setMenuOpen] = useState(false)
   const [cartItems, setCartItems] = useState({ cart: { current_order: [] } })
 
@@ -15,17 +15,22 @@ const Cart = () => {
 
   const fetchCartItems = async () => {
     try {
-      const response = await axios.get(`${BASE_URL}users/${userId}`)
+      const response = await axios.get(`${BASE_URL}users/${props.userData._id}`)
       setCartItems(response.data);
+      console.log('fetching cart', response.data)
     } catch (error) {
       console.error('Error grabbing cart items', error)
     }
-  }
+  }  
 
   useEffect(() => {
-    if (menuOpen) {
-      fetchCartItems()
+    const getCart = async () => {
+      if (menuOpen) {   
+        await fetchCartItems()
+       }
     }
+    getCart()
+
   }, [menuOpen])
 
   const removeItem = async (menuId, itemType) => {
@@ -59,6 +64,8 @@ const Cart = () => {
   }
 
   return (
+    <div>
+    {props.userData && (
     <div className={`cart-overlay-container ${menuOpen ? 'open' : ''}`}>
       <div className="cart-wrapper">
         <div className="arrow" onClick={toggleCart}>
@@ -67,7 +74,7 @@ const Cart = () => {
         {menuOpen && (
           <div className="menu">
             <ul>
-              {cartItems.cart.current_order.map((currentOrder, key) => (
+              {cartItems.cart.current_order && (cartItems.cart.current_order.map((currentOrder, key) => (
                 <div className='cart-container' key={currentOrder._id}>
                   <div className='cyop-cart'>
                     {currentOrder.custom_pizza && currentOrder.custom_pizza.length > 0 && (
@@ -97,11 +104,13 @@ const Cart = () => {
                     <li><strong>Total Price:</strong> {currentOrder.total_price}</li>
                   </div>
                 </div>
-              ))}
+              )))}
             </ul>
           </div>
         )}
       </div>
+    </div>
+    )}
     </div>
   )
 }
