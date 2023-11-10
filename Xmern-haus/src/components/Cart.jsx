@@ -4,10 +4,12 @@ import axios from 'axios'
 import './Cart.css'
 
 const Cart = () => {
-  let userId = '654d34e7f5dbc4d3dd3f1199'
+  let userId = '654e64dc1bf9df834c01c43d'
+
   const [menuOpen, setMenuOpen] = useState(false)
   const [cartItems, setCartItems] = useState({ cart: { current_order: [] } })
   // const [quantity, setQuantity] = useState({})
+
   const toggleCart = () => {
     setMenuOpen(!menuOpen)
   }
@@ -19,6 +21,8 @@ const Cart = () => {
           const response = await axios.get(`${BASE_URL}users/${userId}`)
           setCartItems(response.data)
           console.log(response.data)
+          const orderId = response.data.cart.current_order[0]._id
+          console.log('id:', orderId)
         } catch (error) {
           console.error('Error grabbing cart items', error)
         }
@@ -33,11 +37,10 @@ const Cart = () => {
   //   setQuantity({ ...quantity, [itemId]: newQuantity})
   // }
   const removeItems = async () => {
-       await axios.delete(`${BASE_URL}users/${userId}/clearCart`)
-       .then((response) => {
-        setCartItems( { cart: { current_order: [] } } )
-        console.log('removed:', response)
-       }) 
+        const response = await axios.get(`${BASE_URL}users/${userId}`)
+        const orderId = response.data.cart.current_order[0]._id
+        console.log('id:', orderId)
+       await axios.delete(`${BASE_URL}orders/${orderId}`)
        .catch((error) => {
       console.error('Error removing cart items', error)
     })
@@ -67,12 +70,6 @@ const Cart = () => {
                     <li>Menu Item: {currentOrder.menu_item[0].name}</li>
                     <li>Toppings: {currentOrder.menu_item[0].toppings.map((topping) => topping.name).join(', ')}</li>
                   </div>
-                  {/* quantity input box */}
-                    {/* <input
-                      type='number'
-                      value={quantity[currentOrder._id] || 1}
-                      onChange={(e) => updateQuantity(currentOrder._id, e.target.value)}
-                      /> */}
                   <div className='cart-btn-container'>
                     {/* <button onClick={() => updateQuantity(currentOrder._id, quantity[currentOrder._id])}> Update Qty.</button> */}
                     <button onClick= {removeItems}>Remove Items</button>
