@@ -4,8 +4,9 @@ import './Container.css';
 import { BASE_URL } from '../global'
 
 
-const CenteredContainer = ({ onClose }) => {
-  const [userData, setUserData] = useState(null);
+const Login = (props) => {
+  const [userData, setUserData] = useState(null);  
+  const [username, setUsername] = useState('');
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -20,6 +21,28 @@ const CenteredContainer = ({ onClose }) => {
 
     fetchUserData();
   }, []);
+
+  const loginUser = () => {
+    console.log('Login Started..')
+    
+    for (let i = 0; i < userData.length; i++) {
+      if (username == userData[i].user_name) {
+          console.log('user logged in: ', userData[i])
+          props.setUserData(userData[i])
+          console.log('user State: ', props.userData)
+          props.onClose()
+          break;
+      } else {
+          console.log('user not found')
+      }
+    }
+    
+  }
+
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value);
+  };
+
 
   return (
     <div className="centered-container">
@@ -37,18 +60,23 @@ const CenteredContainer = ({ onClose }) => {
         )}
         <div className="input-container">
           <label htmlFor="username">Username</label>
-          <input type="text" id="username" placeholder="Enter your username" />
+          <input 
+            type="text" 
+            id="username" 
+            onChange={handleUsernameChange} 
+            value={username} 
+            placeholder="Enter your username" />
         </div>
         <div className="input-container">
           <label htmlFor="password">Password</label>
           <input type="password" id="password" placeholder="Enter your password" />
         </div>
-        <button onClick={onClose}>Close</button>
-        <button onClick={onClose}>Login</button>
+        <button onClick={props.onClose}>Close</button>
+        <button onClick={() => loginUser()}>Login</button>
 
       </div>
     </div>
   );
 };
 
-export default CenteredContainer;
+export default Login;

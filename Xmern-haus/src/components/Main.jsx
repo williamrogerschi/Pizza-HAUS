@@ -18,31 +18,33 @@ const Main = () => {
     const [userData, setUserData] = useState(null)
 
     useEffect(() => {
-        console.log('main use effect' )
-        const user = "User1"
-        const findUserInfo = async () => {
-          let users = (await axios.get(`${BASE_URL}users`)).data
-          for (let i = 0; i < users.length; i++) {
-            if (user == users[i].user_name) {
-                setUserData(users[i])
-                console.log(users[i])
-                break;
-            } else {
-                console.log('user not found')
-            }
-          }
+    //     console.log('main use effect' )
+    //     // const user = "User1"
+    //     if (userData != null) {
+    //     const findUserInfo = async () => {
+    //       let users = (await axios.get(`${BASE_URL}users`)).data
+    //       for (let i = 0; i < users.length; i++) {
+    //         if (user == users[i].user_name) {
+    //             setUserData(users[i])
+    //             console.log(users[i])
+    //             break;
+    //         } else {
+    //             console.log('user not found')
+    //         }
+    //       }
           
-        };
-        findUserInfo();
-
-      }, []);
+    //     };
+    //     findUserInfo();
+    // }
+    console.log('userdata updated: ',userData)
+      }, [userData]);
 
     return (
      <>
     <div className="main">
         <div className='header-container'>
             <Header/>
-            <Nav/>
+            <Nav userData={userData} setUserData={setUserData}/>
         </div>
         <Routes>
             <Route path='/' element={<Home userData={userData} setUserData={setUserData}/>}/>
