@@ -13,6 +13,10 @@ const Nav = (props) => {
     setShowContainer(false);
   };
 
+  const handleLogout = () => {
+    props.setUserData(null);
+  }
+
   return (
     <div className="navbar">
       
@@ -22,8 +26,8 @@ const Nav = (props) => {
       {/* <Link className="nav-a" to="/"> Home </Link> */}
       <Link className="nav-a" to="/Pizza"> Pizzas </Link>
       <Link className="nav-a" to="/CYOP"> CYOP </Link>
-      <div className="nav-a" onClick={openContainer}>
-        Login
+      <div className="nav-a" onClick={props.userData ? handleLogout : openContainer}>
+        {props.userData ? `${props.userData.user_name} Logout` : "Login"}
       </div>
 
       {showContainer && <Login onClose={closeContainer} userData={props.userData} setUserData={props.setUserData} />}

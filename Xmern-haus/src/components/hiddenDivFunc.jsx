@@ -15,7 +15,7 @@ function Description({description}) {
   useEffect(() => {
     const getPizzaDescription = async () => {
         let pizza = (await axios.get(`${BASE_URL}menus`)).data
-        console.log(pizza)
+        // console.log(pizza)
         setMenu(pizza)
     }
     getPizzaDescription()
