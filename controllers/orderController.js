@@ -61,7 +61,7 @@ async function updateOrder(req,res) {
         const id = req.params.id
         const order = await Order.findByIdAndUpdate(id, req.body, {new: true})
         if (order) {
-            return res.status(200).json(cart)
+            return res.status(200).json(order)
         }
         throw new Error('order not found')
     } catch (e) {

@@ -3,12 +3,63 @@ const { User, Cart } = require('../models/Index');
 
 const getAllUsers = async (req, res) => {
     try {
-        const users = await User.find()
-        res.json(users)
+      const users = await User.find()
+        .populate({
+          path: 'cart',
+          populate: {
+            path: 'current_order',
+            model: 'Order',
+            populate: {
+              path: 'menu_item',
+              model: 'Menu',
+              populate: [
+                {
+                  path: 'cheeses',
+                  model: 'Cheese',
+                },
+                {
+                  path: 'toppings',
+                  model: 'Toppings',
+                },
+              ],
+            },
+          },
+        })
+        .populate({
+          path: 'cart',
+          populate: {
+            path: 'current_order',
+            model: 'Order',
+            populate: [
+              {
+                path: 'custom_pizza',
+                model: 'Menu',
+                populate: [
+                  {
+                    path: 'cheeses',
+                    model: 'Cheese',
+                  },
+                  {
+                    path: 'toppings',
+                    model: 'Toppings',
+                  },
+                  {
+                    path: 'base_pizza',
+                    model: 'Menu',
+                  },
+                ],
+              },
+            ],
+          },
+        })
+        .exec();
+  
+      res.json(users);
     } catch (error) {
-        return res.status(500).send(error.message);
+      return res.status(500).send(error.message);
     }
-}
+  };
+  
 
 async function getOneUser(req, res) {
     try {
