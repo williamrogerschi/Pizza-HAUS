@@ -5,7 +5,7 @@ import axios from 'axios';
 import AddToCart from './addToCartButton';
 
 
-function Description({description}) {
+function Description(props) {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
@@ -33,7 +33,7 @@ function Description({description}) {
             {/* {menu.map((des, index) => (
                 <div className='item-description'>{des.description}</div>
             ))} */}
-            <div className='item-description'>{description}</div>
+            <div className='item-description'>{props.description}</div>
             <AddToCart />
           </CardBody>
         </Card>
