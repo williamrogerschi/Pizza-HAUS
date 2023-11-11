@@ -1,6 +1,6 @@
 const db = require('../db/index')
 
-const { Cart, Cheese, Menu, Topping, User, Order } = require('../models/Index.js')
+const { Cart, Cheese, Menu, Toppings, User, Order } = require('../models/Index.js')
 
 db.on('error', console.error.bind(console, `MongoDB connection error:`))
 
