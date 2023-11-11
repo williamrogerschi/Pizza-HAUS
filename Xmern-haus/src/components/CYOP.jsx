@@ -19,6 +19,7 @@ export default function CYOP(props) {
   const [sizeSelected, setSize] = useState(null); //size
   const [toppingsSelected, setToppingsSelected] = useState([]);
   const [cheeseSelected, setCheeseSelected] = useState([]);
+  const [cheesePizza, setCheesePizza] = useState(null);
 
   const onCheckboxBtnClick = (selected, type) => {
     if (type === "cheese") {
@@ -40,24 +41,57 @@ export default function CYOP(props) {
       console.log(...toppingsSelected);
       setToppingsSelected([...toppingsSelected]);
     }
-  }
+  };
+
+  const putCart = () => {
+    const putCartCall = async () => {
+      const toppings = [...toppingsSelected];
+
+      const cheeses = [...cheeseSelected];
+
+      const new_custom_pizza = {
+        base_pizza: cheesePizza._id,
+        toppings: toppings,
+        cheeses: cheeses,
+      }
+
+      const current_custom_pizzas = (await axios.get(`${BASE_URL}orders/${props.userData.cart.current_order._id}`)).data.custom_pizza
+      console.log(current_custom_pizzas)
+      console.log(new_custom_pizza)
+
+      console.log(props.userData)
+      
+      const custom_pizza = [...current_custom_pizzas, new_custom_pizza]
+      console.log(custom_pizza)
+
+      const body = {custom_pizza: custom_pizza}
+      const response = (await axios.put(`${BASE_URL}orders/${props.userData.cart.current_order._id}`, body)).data
+    };
+    putCartCall();
+  };
 
   const addToCart = () => {
-    console.log(props.userData)
-    // props.setUserData()
-    
-  }
+    // console.log(props.userData)
+    let user = props.userData;
+    putCart()
+    //Reset selections
+    setSize(null);
+    setCheeseSelected([]);
+    setToppingsSelected([]);
+  };
 
   useEffect(() => {
     const getToppingsCheeses = async () => {
-      let cheeses = (await axios.get(`${BASE_URL}cheeses`)).data
-      let toppings = (await axios.get(`${BASE_URL}toppings`)).data
-    //   let users = (await axios.get(`${BASE_URL}users`)).data
+      let cheeses = (await axios.get(`${BASE_URL}cheeses`)).data;
+      let toppings = (await axios.get(`${BASE_URL}toppings`)).data;
+      let cheesePizza = (await axios.get(`${BASE_URL}menus`)).data[0];
+
+      //   let users = (await axios.get(`${BASE_URL}users`)).data
       console.log(cheeses);
       console.log(toppings);
       setToppings(toppings);
       setCheeses(cheeses);
-      
+      setCheesePizza(cheesePizza);
     };
     getToppingsCheeses();
   }, []);
@@ -74,38 +108,39 @@ export default function CYOP(props) {
       </div>
       <div className="rightside">
         <h5>Sizes</h5>
-        
-          <Button
-            color="primary"
-            outline
-            onClick={() => setSize(1)}
-            active={sizeSelected === 1}
-          >
-            Small
-          </Button>
-          <Button
-            color="primary"
-            outline
-            onClick={() => setSize(2)}
-            active={sizeSelected === 2}
-          >
-            Large
-          </Button>
-        
+
+        <Button
+          color="primary"
+          outline
+          onClick={() => setSize(1)}
+          active={sizeSelected === 1}
+        >
+          Small
+        </Button>
+        <Button
+          color="primary"
+          outline
+          onClick={() => setSize(2)}
+          active={sizeSelected === 2}
+        >
+          Large
+        </Button>
+
         {/* <p>Selected: {rSelected}</p> */}
 
         {/* //cheeses */}
         <h5>Cheeses</h5>
 
         {cheeses ? (
-            <div className="buttonGroup">
+          <div className="buttonGroup">
             {cheeses.map((cheese, i) => (
-              <Button className="buttonList"         
+              <Button
+                className="buttonList"
                 key={cheese._id}
                 color="primary"
                 outline
-                onClick={() => onCheckboxBtnClick(cheese.name, "cheese")}
-                active={cheeseSelected.includes(cheese.name)}
+                onClick={() => onCheckboxBtnClick(cheese._id, "cheese")}
+                active={cheeseSelected.includes(cheese._id)}
               >
                 {cheese.name}
               </Button>
@@ -122,12 +157,13 @@ export default function CYOP(props) {
         {toppings ? (
           <div className="buttonGroup">
             {toppings.map((topping, i) => (
-              <Button className="buttonList"
+              <Button
+                className="buttonList"
                 key={topping._id}
                 color="primary"
                 outline
-                onClick={() => onCheckboxBtnClick(topping.name, "topping")}
-                active={toppingsSelected.includes(topping.name)}
+                onClick={() => onCheckboxBtnClick(topping._id, "topping")}
+                active={toppingsSelected.includes(topping._id)}
               >
                 {topping.name}
               </Button>
@@ -139,9 +175,9 @@ export default function CYOP(props) {
           </Spinner>
         )}
         <h5></h5>
-        <Button 
-            block
-            onClick={() => addToCart()} >Add to Cart</Button>
+        <Button block onClick={() => addToCart()}>
+          Add to Cart
+        </Button>
       </div>
     </div>
   ) : (

@@ -74,26 +74,26 @@ const Cart = (props) => {
         {menuOpen && (
           <div className="menu">
             <ul>
-              {cartItems.cart.current_order && (cartItems.cart.current_order.map((currentOrder, key) => (
-                <div className='cart-container' key={currentOrder._id}>
+              {cartItems.cart.current_order && (
+                <div className='cart-container' >
                   <div className='cyop-cart'>
-                    {currentOrder.custom_pizza && currentOrder.custom_pizza.length > 0 && (
+                    {cartItems.cart.current_order.custom_pizza && cartItems.cart.current_order.custom_pizza.length > 0 && (
                       <>
                         <h4>Custom Pizza</h4>
-                        <li>Base Pizza: {currentOrder.custom_pizza[0].base_pizza.name}</li>
-                        <li>Toppings: {currentOrder.custom_pizza[0].toppings.map((topping) => topping.name).join(', ')}</li>
-                        <li>Cheeses: {currentOrder.custom_pizza[0].cheeses.map((cheese) => cheese.name).join(', ')}</li>
-                        <button className='cart-btn' onClick={() => removeCYOP(currentOrder.custom_pizza[0]._id, 'custom pizza')}>Remove</button>
+                        <li>Base Pizza: {cartItems.cart.current_order.custom_pizza[0].base_pizza.name}</li>
+                        <li>Toppings: {cartItems.cart.current_order.custom_pizza[0].toppings.map((topping) => topping.name).join(', ')}</li>
+                        <li>Cheeses: {cartItems.cart.current_order.custom_pizza[0].cheeses.map((cheese) => cheese.name).join(', ')}</li>
+                        <button className='cart-btn' onClick={() => removeCYOP(cartItems.cart.current_order.custom_pizza[0]._id, 'custom pizza')}>Remove</button>
                       </>
                     )}
                   </div>
                   <div className='sig-cart'>
-                    {currentOrder.menu_item && currentOrder.menu_item.length > 0 && (
+                    {cartItems.cart.current_order.menu_item && cartItems.cart.current_order.menu_item.length > 0 && (
                       <>
                         <h4>Signature Pizza</h4>
-                        <li>Menu Item: {currentOrder.menu_item[0].name}</li>
-                        <li>Toppings: {currentOrder.menu_item[0].toppings.map((topping) => topping.name).join(', ')}</li>
-                        <button className='cart-btn' onClick={() => removeItem(currentOrder.menu_item[0]._id, 'menu item')}>Remove</button>
+                        <li>Menu Item: {cartItems.cart.current_order.menu_item[0].name}</li>
+                        <li>Toppings: {cartItems.cart.current_order.menu_item[0].toppings.map((topping) => topping.name).join(', ')}</li>
+                        <button className='cart-btn' onClick={() => removeItem(cartItems.cart.current_order.menu_item[0]._id, 'menu item')}>Remove</button>
                       </>
                     )}
                   </div>
@@ -101,10 +101,10 @@ const Cart = (props) => {
                     {/* <button onClick= {removeItems}>Remove Items</button> */}
                   </div>
                   <div className='order-cart'>
-                    <li><strong>Total Price:</strong> {currentOrder.total_price}</li>
+                    <li><strong>Total Price:</strong> {cartItems.cart.current_order.total_price}</li>
                   </div>
                 </div>
-              )))}
+              )}
             </ul>
           </div>
         )}
