@@ -5,9 +5,8 @@ import './Cart.css'
 
 const Cart = (props) => {
   
-  
   const [menuOpen, setMenuOpen] = useState(false)
-  const [cartItems, setCartItems] = useState({ cart: { current_order: [] } })
+  const [cartItems, setCartItems] = useState({ cart: { current_order: {} } })
 
   const toggleCart = () => {
     setMenuOpen(!menuOpen)
@@ -21,7 +20,7 @@ const Cart = (props) => {
     } catch (error) {
       console.error('Error grabbing cart items', error)
     }
-  }  
+  }
 
   useEffect(() => {
     const getCart = async () => {
@@ -35,7 +34,7 @@ const Cart = (props) => {
 
   const removeItem = async (menuId, itemType) => {
     try {
-      const orderId = cartItems.cart.current_order[0]._id
+      const orderId = cartItems.cart.current_order._id
       console.log('id:', orderId)
       await axios.put(`${BASE_URL}orders/${orderId}/menuItem/${menuId}`)
 
@@ -50,7 +49,7 @@ const Cart = (props) => {
 
   const removeCYOP = async (cyopId, itemType) => {
     try {
-      const orderId = cartItems.cart.current_order[0]._id
+      const orderId = cartItems.cart.current_order._id
       console.log('id:', orderId)
       await axios.put(`${BASE_URL}orders/${orderId}/CYOP/${cyopId}`)
 
@@ -74,29 +73,31 @@ const Cart = (props) => {
         {menuOpen && (
           <div className="menu">
             <ul>
+
               {cartItems.cart.current_order && (
                 <div className='cart-container' >
-                  <div className='cyop-cart'>
                     {cartItems.cart.current_order.custom_pizza && cartItems.cart.current_order.custom_pizza.length > 0 && (
-                      <>
-                        <h4>Custom Pizza</h4>
-                        <li>Base Pizza: {cartItems.cart.current_order.custom_pizza[0].base_pizza.name}</li>
-                        <li>Toppings: {cartItems.cart.current_order.custom_pizza[0].toppings.map((topping) => topping.name).join(', ')}</li>
-                        <li>Cheeses: {cartItems.cart.current_order.custom_pizza[0].cheeses.map((cheese) => cheese.name).join(', ')}</li>
-                        <button className='cart-btn' onClick={() => removeCYOP(cartItems.cart.current_order.custom_pizza[0]._id, 'custom pizza')}>Remove</button>
-                      </>
+                      cartItems.cart.current_order.custom_pizza.map((customPizza, index) => (
+                        <div className='cyop-cart' key={index}>
+                          <h4>Custom Pizza</h4>
+                          <li>Base Pizza: {customPizza.base_pizza.name}</li>
+                          <li>Toppings: {customPizza.toppings.map((topping) => topping.name).join(', ')}</li>
+                          <li>Cheeses: {customPizza.cheeses.map((cheese) => cheese.name).join(', ')}</li>
+                          <button className='cart-btn' onClick={() => removeCYOP(customPizza._id, 'custom pizza')}>Remove</button>
+                        </div>
+                      ))
                     )}
-                  </div>
-                  <div className='sig-cart'>
                     {cartItems.cart.current_order.menu_item && cartItems.cart.current_order.menu_item.length > 0 && (
-                      <>
-                        <h4>Signature Pizza</h4>
-                        <li>Menu Item: {cartItems.cart.current_order.menu_item[0].name}</li>
-                        <li>Toppings: {cartItems.cart.current_order.menu_item[0].toppings.map((topping) => topping.name).join(', ')}</li>
-                        <button className='cart-btn' onClick={() => removeItem(cartItems.cart.current_order.menu_item[0]._id, 'menu item')}>Remove</button>
-                      </>
+                      cartItems.cart.current_order.menu_item.map((sigPizza, index) => (
+                        <div className='sig-cart' key={index}>
+                          <h4>Signature Pizza</h4>
+                          <li>Menu Item: {sigPizza.name}</li>
+                          <li>Toppings: {sigPizza.toppings.map((topping) => topping.name).join(', ')}</li>
+                          <button className='cart-btn' onClick={() => removeItem(sigPizza._id, 'menu item')}>Remove</button>
+                        </div>
+                        ))
                     )}
-                  </div>
+
                   <div className='cart-btn-container'>
                     {/* <button onClick= {removeItems}>Remove Items</button> */}
                   </div>
