@@ -21,6 +21,7 @@ function Description(props) {
     getPizzaDescription()
   }, []);
 
+  const itemId = props.itemId
   return (
     <React.StrictMode>
       <Button color="primary" onClick={toggle} style={{ marginBottom: '1rem' }}>
@@ -34,7 +35,7 @@ function Description(props) {
                 <div className='item-description'>{des.description}</div>
             ))} */}
             <div className='item-description'>{props.description}</div>
-            <AddToCart />
+            <AddToCart itemId = {itemId} />
           </CardBody>
         </Card>
       </Collapse>

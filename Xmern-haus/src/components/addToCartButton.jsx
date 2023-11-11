@@ -1,9 +1,11 @@
+import { useEffect, useState } from "react"
 import { BASE_URL } from "../global"
 import axios from "axios"
 
 const AddToCart = (props) => {
+
     const addToCart = async () => {
-        let add = (await axios.put(`${BASE_URL}orders/addMenu/654d2fd5e6892520b4d9537c`, {order_id: ``} )).data
+        let add = (await axios.put(`${BASE_URL}/orders/654d2fd5e6892520b4d9537c/menuItem/${props.itemId}`)).data
         console.log(add)
     }
     return (

@@ -30,7 +30,8 @@ const Pizza = () => {
                         <div className='pizza-card'>
                             <img className='pizza-card-image' src={pizzaItem.image} alt={pizzaItem.name}/>
                             <h4>{pizzaItem.name} ${pizzaItem.base_price}</h4>
-                            <Description description = {pizzaItem.description}/> 
+                            <Description description = {pizzaItem.description}
+                                         itemId = {pizzaItem._id}/> 
                         </div>
                         </div>
                 ))}
