@@ -3,7 +3,6 @@ import Header from './Header'
 import Nav from './Nav'
 import Home from './Home'
 import Pizza from './Pizza'
-
 import CYOP from './CYOP'
 import Footer from './Footer'
 import Cart from './Cart'
@@ -16,6 +15,18 @@ import { BASE_URL } from '../global'
 const Main = () => {
 
     const [userData, setUserData] = useState(null)
+    // const [cartItems, setCartItems] = useState({ cart: { current_order: {} } })
+
+
+    // const fetchCartItems = async () => {
+    //     try {
+    //       const response = await axios.get(`${BASE_URL}users/${props.userData._id}`)
+    //       setCartItems(response.data);
+    //       console.log('fetching cart', response.data)
+    //     } catch (error) {
+    //       console.error('Error grabbing cart items', error)
+    //     }
+    //   }
 
     useEffect(() => {
     //     console.log('main use effect' )

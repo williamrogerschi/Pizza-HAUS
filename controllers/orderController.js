@@ -84,99 +84,100 @@ async function deleteOrder(req,res) {
 
 async function getMenuItem(req, res) {
     try {
-        const orderId = req.params.orderId;
-        const menuId = req.params.menuId;
-        const order = await Order.findById(orderId);
+        const orderId = req.params.orderId
+        const menuId = req.params.menuId
+        const order = await Order.findById(orderId)
 
         if (!order) {
-            throw new Error('Order not found');
+            throw new Error('Order not found')
         }
 
         const menuItem = order.menu_item.find(item => {
             if (order.menu_item && order.menu_item[0]._id.toString() === menuId) {
-                return true;
+                return true
             }
-            return false;
-        });
+            return false
+        })
 
         if (menuItem) {
-            return res.status(200).json(menuItem);
+            return res.status(200).json(menuItem)
         }
-        throw new Error('Menu item not found in the order');
+        throw new Error('Menu item not found in the order')
     } catch (e) {
-        return res.status(500).json({ error: e.message });
+        return res.status(500).json({ error: e.message })
     }
 }
 
 async function getCYOP(req, res) {
     try {
-        const orderId = req.params.orderId;
-        const cyopId = req.params.cyopId;
-        const order = await Order.findById(orderId);
+        const orderId = req.params.orderId
+        const cyopId = req.params.cyopId
+        const order = await Order.findById(orderId)
 
         if (!order) {
-            throw new Error('Order not found');
+            throw new Error('Order not found')
         }
 
         const cyopItem = order.custom_pizza.find(item => {
             if (order.custom_pizza && order.custom_pizza[0]._id.toString() === cyopId) {
-                return true;
+                return true
             }
-            return false;
-        });
+            return false
+        })
 
         if (cyopItem) {
-            return res.status(200).json(cyopItem);
+            return res.status(200).json(cyopItem)
         }
-        throw new Error('Menu item not found in the order');
+        throw new Error('Menu item not found in the order')
     } catch (e) {
-        return res.status(500).json({ error: e.message });
+        return res.status(500).json({ error: e.message })
     }
 }
 
 async function removeItemFromOrder(req, res) {
     try {
-        const orderId = req.params.orderId;
-        const menuId = req.params.menuId;
-        const order = await Order.findById(orderId);
+        const orderId = req.params.orderId
+        const menuId = req.params.menuId
+        const order = await Order.findById(orderId)
 
         if (!order) {
-            throw new Error('Order not found');
+            throw new Error('Order not found')
         }
 
         // Filter out the menu item with the specified menuId
-        order.menu_item = order.menu_item.filter(item => item._id.toString() !== menuId);
+        order.menu_item = order.menu_item.filter(item => item._id.toString() !== menuId)
 
         // Save the updated order
-        await order.save();
+        await order.save()
 
-        res.status(200).json({ message: 'Item removed from order' });
+        res.status(200).json({ message: 'Item removed from order' })
     } catch (error) {
-        console.error('Error removing item from order', error);
-        res.status(500).json({ error: error.message });
+        console.error('Error removing item from order', error)
+        res.status(500).json({ error: error.message })
     }
 }
 
 
 async function removeCYOPFromOrder(req, res) {
     try {
-        const orderId = req.params.orderId;
-        const cyopId = req.params.cyopId;
-        const order = await Order.findById(orderId);
+        const orderId = req.params.orderId
+        const cyopId = req.params.cyopId
+        const order = await Order.findById(orderId)
 
         if (!order) {
-            throw new Error('Order not found');
+            throw new Error('Order not found')
         }
 
-        order.custom_pizza = order.custom_pizza.filter(item => item._id.toString() !== cyopId);
-        await order.save();
+        order.custom_pizza = order.custom_pizza.filter(item => item._id.toString() !== cyopId)
+        await order.save()
 
-        res.status(200).json({ message: 'Item removed from order' });
+        res.status(200).json({ message: 'Item removed from order' })
     } catch (error) {
-        console.error('Error removing item from order', error);
-        res.status(500).json({ error: error.message });
+        console.error('Error removing item from order', error)
+        res.status(500).json({ error: error.message })
     }
 }
+
 
 
 
