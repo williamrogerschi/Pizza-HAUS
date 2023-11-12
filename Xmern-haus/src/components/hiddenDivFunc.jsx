@@ -3,6 +3,8 @@ import { Collapse, Button, CardBody, Card } from 'reactstrap';
 import { BASE_URL } from '../global'
 import axios from 'axios';
 import AddToCart from './addToCartButton';
+import './hiddenDivFunc.css'
+
 
 
 function Description(props) {
@@ -50,8 +52,9 @@ function Description(props) {
 
   return (
     <React.StrictMode>
-      <Button color="primary" onClick={toggle} style={{ marginBottom: '1rem' }}>
-        Toggle
+      <Button color="grey" onClick={toggle} style={{ marginBottom: '1rem' }}>
+        See Pizza
+        <img src='https://www.wisedecor.com/wp-content/uploads/2017/12/Arrow-Thirteen-Pointing-up-Lettering-Art-17-o-600x560.jpg' className='button'/>
       </Button>
       <Collapse isOpen={isOpen}> 
       {/* {...props} */}

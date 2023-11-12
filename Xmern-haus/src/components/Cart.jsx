@@ -63,7 +63,7 @@ const Cart = (props) => {
   }
 
   return (
-    <div>
+    <div className='body'>
     {props.userData && (
     <div className={`cart-overlay-container ${menuOpen ? 'open' : ''}`}>
       <div className="cart-wrapper">

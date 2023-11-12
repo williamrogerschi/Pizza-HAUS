@@ -8,6 +8,7 @@ const Login = (props) => {
   const [userData, setUserData] = useState(null);  
   const [username, setUsername] = useState('');
 
+
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -21,6 +22,7 @@ const Login = (props) => {
 
     fetchUserData();
   }, []);
+
 
   const loginUser = () => {
     console.log('Login Started..')
@@ -59,7 +61,6 @@ const Login = (props) => {
           </div>
         )}
         <div className="input-container">
-          <label htmlFor="username">Username</label>
           <input 
             type="text" 
             id="username" 
@@ -73,7 +74,6 @@ const Login = (props) => {
         </div>
         <button onClick={props.onClose}>Close</button>
         <button onClick={() => loginUser()}>Login</button>
-
       </div>
     </div>
   );

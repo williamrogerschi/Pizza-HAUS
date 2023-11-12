@@ -1,3 +1,7 @@
+.cart-container {
+  max-height: 800px;
+  overflow: auto;
+}
 .cart-overlay-container {
   position: fixed;
   bottom: 0;
