@@ -65,8 +65,7 @@ a {
 .CYOP {
   display:flex;
   flex-direction: row;
-  padding:20px;
-  margin: 40px;
+  padding: 30px;
 }
 
 .leftside, .rightside {
@@ -248,11 +247,5 @@ li {
 .add-to-cart {
   border: solid red;
   height: 5px;
-}
-
-.centered-container {
-  border: 2px solid rgb(170,45,45);
-  border-radius: 12px;
-  background-color: rgba(255, 255, 255, 1);
 }
 

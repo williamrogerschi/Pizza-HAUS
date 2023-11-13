@@ -5,8 +5,6 @@ import { useState, useEffect } from 'react'
 import Description from './hiddenDivFunc'
 
 const Pizza = (props) => {
-    
-
         const [pizza, setPizza] = useState([])
 
         useEffect(() => {

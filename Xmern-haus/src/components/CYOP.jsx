@@ -168,7 +168,11 @@ const calculatePrice = () => {
 //   },[price])
 
   return cheeses && toppings ? (
-    <div className="CYOP">
+    <div className="CYOP-page">
+                <div className='pizza-header'>
+                <h1> C Y O P </h1>
+            </div>
+            <div className="CYOP">
       <div className="leftside">
         <img
           className="custompizza"
@@ -249,6 +253,7 @@ const calculatePrice = () => {
           Add to Cart
         </Button>
       </div>
+    </div>
     </div>
   ) : (
     <Spinner className="m-5" color="primary">
