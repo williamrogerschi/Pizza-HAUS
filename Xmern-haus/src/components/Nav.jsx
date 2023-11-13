@@ -14,7 +14,7 @@ const Nav = (props) => {
   };
 
   const handleLogout = () => {
-    props.setUserData(null);
+    props.setUserData(null)
   }
 
   return (
@@ -23,7 +23,6 @@ const Nav = (props) => {
       <Link className="nav-a" to='/'>
       <img height='100px' width='100px' src='mern_logo_black.png' alt='pizza-logo'/>
       </Link>
-      {/* <Link className="nav-a" to="/"> Home </Link> */}
       <Link className="nav-a" to="/Pizza"> Pizzas </Link>
       <Link className="nav-a" to="/CYOP"> CYOP </Link>
       <div className="nav-a" onClick={props.userData ? handleLogout : openContainer}>
@@ -32,7 +31,7 @@ const Nav = (props) => {
 
       {showContainer && <Login onClose={closeContainer} userData={props.userData} setUserData={props.setUserData} />}
     </div>
-  );
-};
+  )
+}
 
-export default Nav;
+export default Nav

@@ -96,22 +96,5 @@ export default function Footer() {
       </CardFooter>
     </div>
 
-  );
+  )
 }
-
-
-
-
-
-// const Footer = () => {
-//     return (
-//         <div className="header-container">
-//             <h4>Legal Notice 
-//             |  Privacy Policy 
-//             |  Cookies Policy 
-//              Pizza Haus © 2023 All rights reserved</h4>
-//         </div>
-//     )
-// }
-
-// export default Footer

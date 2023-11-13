@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Collapse, Button, CardBody, Card } from 'reactstrap';
 import { BASE_URL } from '../global'
 import axios from 'axios';
-// import AddToCart from './addToCartButton';
 import './hiddenDivFunc.css'
 
 
