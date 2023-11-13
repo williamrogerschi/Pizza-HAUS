@@ -77,7 +77,7 @@ const Cart = (props) => {
     const newOrder = await axios.post(`${BASE_URL}orders/`, {
           "menu_item": [],
               "custom_pizza": [],
-              "total_price": "0",
+              "total_price": "$0",
               "__v": 0
       })
       const newOrderId = newOrder.data.order._id
