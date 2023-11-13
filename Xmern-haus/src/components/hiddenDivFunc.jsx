@@ -76,7 +76,7 @@ function Description(props) {
 
   return (
     <React.StrictMode>
-      <Button color="grey" onClick={toggle} style={{ marginBottom: '1rem' }}>
+      <Button className='see-btn' color="grey" onClick={toggle} style={{ marginBottom: '1rem' }}>
         See Pizza
         <img src='https://www.wisedecor.com/wp-content/uploads/2017/12/Arrow-Thirteen-Pointing-up-Lettering-Art-17-o-600x560.jpg' className='button'/>
       </Button>
