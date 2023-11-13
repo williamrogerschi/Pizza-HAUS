@@ -1,4 +1,4 @@
-const { User, Cart } = require('../models/Index');
+const { User, Cart, Order } = require('../models/Index');
 
 
 const getAllUsers = async (req, res) => {
@@ -123,6 +123,17 @@ async function createNewUser(req, res) {
     try {
         const user = await new User(req.body)
         await user.save()
+
+        const cart = await new Cart ({})
+        await cart.save()
+
+        const order = await new Order ({menu_item: [], custom_pizza:[],total_price:'$0'})
+        await order.save()
+
+        await User.findByIdAndUpdate(user._id, {cart: cart._id}, { new: true })
+        await Cart.findByIdAndUpdate(cart._id, {current_order: order._id}, { new: true })
+        
+        
         return res.status(201).json({
             user
         })
