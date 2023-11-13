@@ -89,6 +89,25 @@ async function updateUserCart (req, res) {
     }
 }
 
+async function updateCurrentOrderInCart(req, res) {
+    try {
+      const cartId = req.params.cartId
+      const orderId = req.params.orderId
+
+      const cart = await Cart.findById(cartId)
+      if (!cart) {
+        throw new Error('Cart not found')
+      }
+  
+      cart.current_order = orderId
+      await cart.save()
+  
+      return res.status(200).json(cart)
+    } catch (e) {
+      return res.status(500).json({ error: e.message })
+    }
+  }
+
 
 module.exports = {
     getAllCarts,
@@ -98,4 +117,5 @@ module.exports = {
     deleteCart,
     getUserCart,
     updateUserCart,
+    updateCurrentOrderInCart,
 }

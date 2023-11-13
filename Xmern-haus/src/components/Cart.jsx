@@ -68,6 +68,28 @@ const Cart = (props) => {
     }
   }
 
+  const deleteOrder = async () => {
+    const orderId = cartItems.cart.current_order._id
+    const cartId = cartItems.cart._id
+    console.log(cartId)
+    await axios.delete(`${BASE_URL}orders/${orderId}`)
+    
+    const newOrder = await axios.post(`${BASE_URL}orders/`, {
+          "menu_item": [],
+              "custom_pizza": [],
+              "total_price": "0",
+              "__v": 0
+      })
+      const newOrderId = newOrder.data.order._id
+      console.log('newOrder:', newOrder)
+      console.log('newOrderId:', newOrderId)
+      await axios.put(`${BASE_URL}carts/${cartId}`, {
+        current_order: newOrderId,
+      })
+      await fetchCartItems()
+}
+
+
   return (
     <div className='body'>
     {props.userData && (
@@ -105,7 +127,7 @@ const Cart = (props) => {
                     )}
 
                   <div className='cart-btn-container'>
-                    {/* <button onClick= {removeItems}>Remove Items</button> */}
+                    <button onClick= {deleteOrder}>Clear Order</button>
                   </div>
                   <div className='order-cart'>
                     <li><strong>Total Price:</strong> {cartItems.cart.current_order.total_price}</li>

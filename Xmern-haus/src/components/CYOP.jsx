@@ -52,10 +52,29 @@ export default function CYOP(props) {
     
   }
 
-  const putCart = async () => {
-    const putCartCall = async () => {
-      const toppings = [...toppingsSelected];
 
+  const fetchUpdatedUserData = async () => {
+    try {
+
+      const updatedUserData = await axios.get(`${BASE_URL}users/${props.userData._id}`)
+      console.log('Updated user data:', updatedUserData.data)
+  
+      return updatedUserData.data
+    } catch (error) {
+      console.error('Error fetching updated user data:', error)
+      throw error
+    }
+  }
+
+
+    const putCart = async () => {
+      try {
+        const updatedUserData = await fetchUpdatedUserData()
+      const currentOrderId = updatedUserData.cart.current_order._id 
+      console.log(currentOrderId)
+
+
+      const toppings = [...toppingsSelected];
       const cheeses = [...cheeseSelected];
 
       const new_custom_pizza = {
@@ -64,7 +83,8 @@ export default function CYOP(props) {
         cheeses: cheeses,
       }
 
-      const current_custom_pizzas = (await axios.get(`${BASE_URL}orders/${props.userData.cart.current_order._id}`)).data.custom_pizza
+
+      const current_custom_pizzas = (await axios.get(`${BASE_URL}orders/${currentOrderId}`)).data.custom_pizza
       console.log(current_custom_pizzas)
       console.log(new_custom_pizza)
 
@@ -89,23 +109,26 @@ export default function CYOP(props) {
       console.log(custom_pizza)
 
       const body = {custom_pizza: custom_pizza}
-      const response = (await axios.put(`${BASE_URL}orders/${props.userData.cart.current_order._id}`, body)).data
-    };
-    await putCartCall();
-  };
+      await axios.put(`${BASE_URL}orders/${currentOrderId}`, body)
+    } catch (error) {
+      console.error('Error adding CYOP to cart', error)
+    }
+  }
 
-  const addToCart = () => {
-    // console.log(props.userData)
-    // let user = props.userData;
-    
-    //Reset selections
-    setSize(1);
-    setCheeseSelected([]);
-    setToppingsSelected([]);
-    setPrice(BASE_PIZZA_COST)
-    putCart().then(() => {
+  const addToCart = async () => {
+    try {
+      let user = props.userData;
+      await putCart().then(() => {
       props.setUpdateUser(Math.random())
-    })
+      })
+     //Reset selections
+      setSize(1);
+      setCheeseSelected([]);
+      setToppingsSelected([]);
+      setPrice(BASE_PIZZA_COST)
+    } catch (error) {
+      console.error('Error adding CYOP to cart', error)
+    }
 
   };
 

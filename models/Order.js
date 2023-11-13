@@ -14,3 +14,13 @@ const orderSchema = new Schema(
 )
 
 module.exports = orderSchema
+
+
+
+//dummy order formatted for POST request
+// {
+//     "menu_item": [],
+//         "custom_pizza": [],
+//         "total_price": "0",
+//         "__v": 0
+// }

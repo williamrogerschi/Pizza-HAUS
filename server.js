@@ -32,6 +32,7 @@ app.get('/carts/:id', cartController.getOneCart)
 app.post('/carts/', cartController.createNewCart)
 app.put('/carts/:id', cartController.updateCart)
 app.delete('/carts/:id', cartController.deleteCart)
+app.put('/carts/:cartId/', cartController.updateCurrentOrderInCart)
 
 //Cheese Routes
 app.get('/cheeses/', cheeseController.getAllCheeses)
