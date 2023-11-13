@@ -47,7 +47,7 @@ export default function Footer() {
         </div>
         <div className="jaim">
           Jaim
-          <a href="www.linkedin.com/in/jaimtoledo10" target="_blank" className="linkedin-link">
+          <a href="https://www.linkedin.com/in/jaimtoledo10" target="_blank" className="linkedin-link">
             <FontAwesomeIcon
               icon={faLinkedin}
               size="xl"
