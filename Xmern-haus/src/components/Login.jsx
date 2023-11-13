@@ -30,6 +30,7 @@ const Login = (props) => {
     for (let i = 0; i < userData.length; i++) {
       if (username == userData[i].user_name) {
           console.log('user logged in: ', userData[i])
+         
           props.setUserData(userData[i])
           console.log('user State: ', props.userData)
           props.onClose()
@@ -44,6 +45,44 @@ const Login = (props) => {
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
   };
+
+  const addUser = async ()  => {
+    let existingUser = null
+    for (let i = 0; i < userData.length; i++) {
+      if (username == userData[i].user_name) {
+          console.log('user logged in: ', userData[i])
+          existingUser = userData[i]                 
+          break;
+      } 
+
+
+    }
+    if (existingUser == null) {
+      const body = {
+        user_name: username,
+        points: 0
+      }
+      const response = await axios.post(`${BASE_URL}users/`, body)
+      console.log('new user: ',response.data.user)
+
+      props.setUserData(response.data.user)
+      props.onClose()
+      return response.data
+  }
+
+  
+    
+  }
+  const createUser =  async () => {
+    console.log('Create Started..')
+
+        const response = await addUser().then(() => {
+          console.log('posted')
+        })
+        
+        
+ 
+    }
 
 
   return (
@@ -74,6 +113,7 @@ const Login = (props) => {
         </div>
         <button onClick={props.onClose}>Close</button>
         <button onClick={() => loginUser()}>Login</button>
+        <button onClick={() => createUser()}>Create User</button>
       </div>
     </div>
   );
