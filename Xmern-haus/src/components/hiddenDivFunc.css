@@ -1,4 +1,40 @@
+button.btn-grey {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: row;
+    max-width: 300px;
+}
+
+
 .button {
-    height: 60px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    height: 40px;
     opacity: .1;
+}
+
+button.pizza-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    background-color: white;
+    max-width: 300px;
+    margin-top: 20px;
+}
+
+button.pizza-btn:hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: black;
+    max-width: 300px;
+}
+
+
+.card-body {
+    max-width: 300px;
 }

@@ -127,7 +127,7 @@ const Cart = (props) => {
                     )}
 
                   <div className='cart-btn-container'>
-                    <button onClick= {deleteOrder}>Clear Order</button>
+                    <button className='cart-btn' onClick= {deleteOrder}>Clear Order</button>
                   </div>
                   <div className='order-cart'>
                     <li><strong>Total Price:</strong> {cartItems.cart.current_order.total_price}</li>

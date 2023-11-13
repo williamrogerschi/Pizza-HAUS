@@ -72,8 +72,8 @@ const Login = (props) => {
           <label htmlFor="password">Password</label>
           <input type="password" id="password" placeholder="Enter your password" />
         </div>
-        <button onClick={props.onClose}>Close</button>
-        <button onClick={() => loginUser()}>Login</button>
+        <button className='cart-btn' onClick={props.onClose}>Close</button>
+        <button className="cart-btn" onClick={() => loginUser()}>Login</button>
       </div>
     </div>
   );
