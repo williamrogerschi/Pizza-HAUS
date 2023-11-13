@@ -13,22 +13,26 @@ import {
 } from "reactstrap";
 import { BASE_URL } from "../global";
 
+const BASE_PIZZA_COST = 10
+
 export default function CYOP(props) {
   const [toppings, setToppings] = useState(null);
   const [cheeses, setCheeses] = useState(null);
-  const [sizeSelected, setSize] = useState(null); //size
+  const [sizeSelected, setSize] = useState(1); //size
   const [toppingsSelected, setToppingsSelected] = useState([]);
   const [cheeseSelected, setCheeseSelected] = useState([]);
   const [cheesePizza, setCheesePizza] = useState(null);
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState(BASE_PIZZA_COST);
 
   const onCheckboxBtnClick = (selected, type) => {
     if (type === "cheese") {
       const index = cheeseSelected.indexOf(selected);
       if (index < 0) {
         cheeseSelected.push(selected);
+        
       } else {
         cheeseSelected.splice(index, 1);
+       
       }
       console.log(...cheeseSelected);
       setCheeseSelected([...cheeseSelected]);
@@ -37,16 +41,18 @@ export default function CYOP(props) {
       const index = toppingsSelected.indexOf(selected);
       if (index < 0) {
         toppingsSelected.push(selected);
+   
       } else {
         toppingsSelected.splice(index, 1);
+     
       }
       console.log(...toppingsSelected);
       setToppingsSelected([...toppingsSelected]);
     }
-    setPrice(10+cheeseSelected.length+toppingsSelected.length)
+    
   }
 
-  const putCart = () => {
+  const putCart = async () => {
     const putCartCall = async () => {
       const toppings = [...toppingsSelected];
 
@@ -65,40 +71,42 @@ export default function CYOP(props) {
       console.log(props.userData)
       
       //calculate total price
-      const order = props.userData.cart.current_order
-      let menu_item_cost = 0
-      for (let i = 0; i < order.menu_item.length; i++) {
-        menu_item_cost += order.menu_item[i].base_price
-      }
-      console.log('menu_item_cost', menu_item_cost)
-      let custom_item_cost = 0
-      for (let i = 0; i < order.custom_pizza.length; i++) {
-        custom_item_cost += 10 + order.custom_pizza[i].toppings.length + order.custom_pizza[i].cheeses.length
-      }
-      console.log('custom_item_cost', custom_item_cost)
-
-
+      // const order = props.userData.cart.current_order
+      // let menu_item_cost = 0
+      // for (let i = 0; i < order.menu_item.length; i++) {
+      //   menu_item_cost += order.menu_item[i].base_price
+      // }
+      // console.log('menu_item_cost', menu_item_cost)
+      // let custom_item_cost = 0
+      // for (let i = 0; i < order.custom_pizza.length; i++) {
+      //   custom_item_cost += 10 + order.custom_pizza[i].toppings.length + order.custom_pizza[i].cheeses.length
+      // }
+      // console.log('custom_item_cost', custom_item_cost)
       
-      let total = props.userData.cart.current_order._id
+      // let total = props.userData.cart.current_order._id
 
       const custom_pizza = [...current_custom_pizzas, new_custom_pizza]
       console.log(custom_pizza)
 
-      const body = {custom_pizza: custom_pizza, total_price: `$${price + menu_item_cost + custom_item_cost}`}
+      const body = {custom_pizza: custom_pizza}
       const response = (await axios.put(`${BASE_URL}orders/${props.userData.cart.current_order._id}`, body)).data
     };
-    putCartCall();
+    await putCartCall();
   };
 
   const addToCart = () => {
     // console.log(props.userData)
-    let user = props.userData;
-    putCart()
+    // let user = props.userData;
+    
     //Reset selections
-    setSize(null);
+    setSize(1);
     setCheeseSelected([]);
     setToppingsSelected([]);
-    setPrice(0)
+    setPrice(BASE_PIZZA_COST)
+    putCart().then(() => {
+      props.setUpdateUser(Math.random())
+    })
+
   };
 
   useEffect(() => {
@@ -116,6 +124,21 @@ export default function CYOP(props) {
     };
     getToppingsCheeses();
   }, []);
+
+const calculatePrice = () => {
+    let total = BASE_PIZZA_COST
+    if (sizeSelected == 2) {
+        total += 5
+    }
+    let toppingsPrice = toppingsSelected.length
+    let cheesesPrice = cheeseSelected.length
+    setPrice(total + toppingsPrice + cheesesPrice)
+}
+
+  useEffect(() => {
+    calculatePrice()
+    
+  },[sizeSelected, toppingsSelected, cheeseSelected])
 
 //   useEffect(() => {
 

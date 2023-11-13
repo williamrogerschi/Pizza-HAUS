@@ -23,7 +23,7 @@ function Description(props) {
 
   const itemId = props.itemId
 
-  const putCart = () => {
+  const putCart = async () => {
     const putCartCall = async () => {
       console.log('itemID',itemId)
       const new_menu_items = itemId
@@ -38,15 +38,17 @@ function Description(props) {
       console.log(menu_item)
 
       const body = {menu_item: menu_item}
-      const response = (await axios.put(`${BASE_URL}orders/${props.userData.cart.current_order._id}`, body)).data
+      const response = await axios.put(`${BASE_URL}orders/${props.userData.cart.current_order._id}`, body)
     }
-    putCartCall()
+    await putCartCall()
   }
 
   const addToCart = () => {
     // console.log(props.userData)
-    let user = props.userData
-    putCart()
+    
+    putCart().then(() => {
+      props.setUpdateUser(Math.random());
+    });       
   }
 
 
