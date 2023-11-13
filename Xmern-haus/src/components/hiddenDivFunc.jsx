@@ -23,6 +23,7 @@ function Description(props) {
 
   const itemId = props.itemId
 
+
   const fetchUpdatedUserData = async () => {
     try {
 
@@ -51,7 +52,6 @@ function Description(props) {
       console.log('current menu items', currentMenuItems)
       console.log('new menu items',newMenuItems)
       
-
       const menuItem = [...currentMenuItems, newMenuItems]
       console.log(menuItem)
 
@@ -65,7 +65,9 @@ function Description(props) {
   const addToCart =  async () => {
     try {
     let user = props.userData
-      await putCart()
+      await putCart().then(() => {
+      props.setUpdateUser(Math.random());
+    })
     } catch (error) {
       console.error('Error adding Signature Pizza to the cart', error)
     }

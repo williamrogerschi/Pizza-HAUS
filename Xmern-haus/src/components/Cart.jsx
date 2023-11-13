@@ -7,6 +7,7 @@ const Cart = (props) => {
   
   const [menuOpen, setMenuOpen] = useState(false)
   const [cartItems, setCartItems] = useState({ cart: { current_order: {} } })
+  const [priceLocal, setPriceLocal] = useState(null)
 
   const toggleCart = () => {
     setMenuOpen(!menuOpen)
@@ -17,6 +18,7 @@ const Cart = (props) => {
       const response = await axios.get(`${BASE_URL}users/${props.userData._id}`)
       setCartItems(response.data);
       console.log('fetching cart', response.data)
+      
     } catch (error) {
       console.error('Error grabbing cart items', error)
     }
@@ -30,16 +32,18 @@ const Cart = (props) => {
     }
     getCart()
 
-  }, [menuOpen])
+  }, [menuOpen, props.userData])
 
   const removeItem = async (menuId, itemType) => {
     try {
       const orderId = cartItems.cart.current_order._id
       console.log('id:', orderId)
-      await axios.put(`${BASE_URL}orders/${orderId}/menuItem/${menuId}`)
+      await axios.put(`${BASE_URL}orders/${orderId}/menuItem/${menuId}`).then(() => {
+        props.setUpdateUser(Math.random())
+      })
 
       // Fetch updated cart items after successful removal
-      await fetchCartItems()
+      
 
       console.log('Removed item with id:', menuId)
     } catch (error) {
@@ -51,10 +55,12 @@ const Cart = (props) => {
     try {
       const orderId = cartItems.cart.current_order._id
       console.log('id:', orderId)
-      await axios.put(`${BASE_URL}orders/${orderId}/CYOP/${cyopId}`)
+      await axios.put(`${BASE_URL}orders/${orderId}/CYOP/${cyopId}`).then(() => {
+        props.setUpdateUser(Math.random())
+      })
 
       // Fetch updated cart items after successful removal
-      await fetchCartItems()
+      
 
       console.log('Removed item with id:', cyopId)
     } catch (error) {
