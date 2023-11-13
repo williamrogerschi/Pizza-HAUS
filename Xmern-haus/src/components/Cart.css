@@ -70,6 +70,7 @@
   border: 1px solid black;
   border-radius: 12px;
   background-color: white;
+  margin: 5px;
 }
 
 .cart-btn:hover {

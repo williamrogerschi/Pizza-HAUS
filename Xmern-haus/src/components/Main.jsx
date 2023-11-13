@@ -18,16 +18,6 @@ const Main = () => {
     // const [cartItems, setCartItems] = useState({ cart: { current_order: {} } })
 
 
-    // const fetchCartItems = async () => {
-    //     try {
-    //       const response = await axios.get(`${BASE_URL}users/${props.userData._id}`)
-    //       setCartItems(response.data);
-    //       console.log('fetching cart', response.data)
-    //     } catch (error) {
-    //       console.error('Error grabbing cart items', error)
-    //     }
-    //   }
-
     useEffect(() => {
     //     console.log('main use effect' )
     //     // const user = "User1"

@@ -86,7 +86,7 @@ function Description(props) {
                 <div className='item-description'>{des.description}</div>
             ))} */}
             <div className='item-description'>{props.description}</div>
-            <Button block onClick={() => addToCart()}>
+            <Button className='pizza-btn' block onClick={() => addToCart()}>
               Add to Cart
             </Button>
             {/* <AddToCart itemId = {props.itemId} /> */}
