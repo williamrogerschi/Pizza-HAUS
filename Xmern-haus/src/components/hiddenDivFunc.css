@@ -3,8 +3,9 @@ button.btn-grey {
     justify-content: flex-end;
     align-items: flex-end;
     flex-direction: row;
-    max-width: 300px;
+    width: 300px;
 }
+
 
 
 .button {
