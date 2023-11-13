@@ -57,7 +57,8 @@ a {
 
 /* CYOP CSS */
 .custompizza {
-  width: 200px;
+  width: 100%;
+  padding: 0px 50px 20px 0;
   margin:20px;
 }
 
@@ -75,16 +76,47 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .buttonGroup {
   display: flex;
   flex-wrap: wrap;
 }
-.buttonList {
+
+button.btn {
   width:120px;
   margin:1px;
+  color: black;
+  border: 1px solid black;
+}
+
+button.buttonList {
+  width:120px;
+  margin:1px;
+  color: black;
+  border: 1px solid black;
+}
+
+button.CYOP-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  background-color: white;
+  max-width: 100%;
+  margin-top: 20px;
+}
+
+
+button.CYOP-btn:hover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: black;
+  max-width: 100%;
+  margin-top: 20px;
 }
 
 /* pizza page */
@@ -217,3 +249,10 @@ li {
   border: solid red;
   height: 5px;
 }
+
+.centered-container {
+  border: 2px solid rgb(170,45,45);
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 1);
+}
+

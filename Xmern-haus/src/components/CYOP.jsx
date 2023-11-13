@@ -172,8 +172,7 @@ const calculatePrice = () => {
       <div className="leftside">
         <img
           className="custompizza"
-          src="https://scontent-ord5-2.xx.fbcdn.net/v/t39.30808-6/299962886_593274218855236_4679641061735007336_n.png?_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=jPNkk4EqVlMAX8bGw3h&_nc_ht=scontent-ord5-2.xx&oh=00_AfDEfd7lG-O7-WS70Y08GWCvQyHMldem0KzmFT3LVNhhkA&oe=655040B8"
-          alt=""
+          src='./PizzaPartyIdeas6.jpg'
         />
         <h5>Total Price: ${price}</h5>
       </div>
@@ -246,7 +245,7 @@ const calculatePrice = () => {
           </Spinner>
         )}
         <h5></h5>
-        <Button block onClick={() => addToCart()}>
+        <Button className="CYOP-btn" block onClick={() => addToCart()}>
           Add to Cart
         </Button>
       </div>
