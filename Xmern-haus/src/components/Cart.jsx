@@ -101,7 +101,7 @@ const Cart = (props) => {
         {menuOpen && (
           <div className="menu">
             <ul>
-
+            
               {cartItems.cart.current_order && (
                 <div className='cart-container' >
                     {cartItems.cart.current_order.custom_pizza && cartItems.cart.current_order.custom_pizza.length > 0 && (
